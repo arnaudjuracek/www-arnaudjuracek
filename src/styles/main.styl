@@ -1,13 +1,93 @@
 body
-  background colors_background
-  padding 0px
-  overflow-x hidden
+	background colors_background
+	padding 0px
+
+a
+	color colors_text
+	text-decoration none
+	height 1.2em
+	border-bottom 1px solid transparent
+	easing(300)
+a:hover, a.hover
+	color blue
+	border-bottom-color blue
+	background rgba(255, 255, 255, 1)
+	&.emphasis
+		color colors_text
+
+
+// -------------------------------------------------------------------------
 
 .page
-  font_main()
-  font_antialiased()
-  vertical-center(absolute)
-  left 0
-  right 0
-  text-align center
-  animation_wiggle()
+	font_main()
+	font_antialiased()
+	padding 50px
+	header
+		display none
+		font-family 'open sans'
+		position fixed
+		max-width 50%
+		top 0px
+		right 50px
+		text-align right
+		h1
+			font-size 150px
+			// line-height .8em
+		h2
+			// line-height 1.2em
+			// font-size 60px
+
+
+	nav
+		position absolute
+		z-index 2
+		margin-left -25px
+		// column-count: 2;
+		line-height 1.4em
+		max-width 50%
+		ul
+			list-style none
+			li time
+				// float left
+				// text-align right
+				margin-right 1em
+				color rgba(0,0,0,.4)
+
+	section.about
+		z-index 1
+		position fixed
+		top 0
+		bottom 0
+		left 0
+		right 0
+		padding 50px
+		overflow-y scroll
+		font-weight bold
+		font-family 'open sans'
+		font-size 20vh
+		p
+			line-height 1.1em
+			margin-bottom .4em
+
+
+		// time
+		// 	display inline-block
+		// 	color rgba(0, 0, 0, .4)
+		// 	margin 1.4em 0 .2em 0
+	// vertical-center(absolute)
+	// position absolute
+	// background #000
+	// left 20px
+	// right 20px
+	// top 20px
+	// bottom 20px
+	// text-align center
+
+#cursors
+	position absolute
+	z-index 99999
+	top 0
+	left 0
+	width 100%
+	min-height 100%
+	pointer-events none

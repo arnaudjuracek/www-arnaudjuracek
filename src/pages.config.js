@@ -16,8 +16,8 @@ const pages = {
   'index.html': {
     template: 'home.mustache',
     data: {
-      title: 'Bro-start-nano template',
-      description: 'Tiny starter kit for making cool websites',
+      title: 'arnaud juracek',
+      description: 'portfolio',
       pageClass: 'home'
     }
   }
