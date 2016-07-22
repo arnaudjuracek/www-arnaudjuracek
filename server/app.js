@@ -33,6 +33,7 @@ io.on('connection', function (socket) {
 
 
   	socket.on('disconnect', function (socket) {
+  		io.sockets.emit('user_exits', cursor);
   		// socket.broadcast.emit('exit', cursor);
 		delete cursors[cursor.id];
 	});

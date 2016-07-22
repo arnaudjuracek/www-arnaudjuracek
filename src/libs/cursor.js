@@ -38,13 +38,18 @@ function Cursor(_id, _x, _y, texture){
 		window.Matter.Body.setStatic(hitbox, false);
 	}
 
+	function isDead(){
+		return (!this.hitbox.isStatic);
+	}
+
 	return {
 		id,
 		sprite,
 		hitbox,
 		updateSprite,
 		updatePosition,
-		kill
+		kill,
+		isDead
 	};
 }
 
