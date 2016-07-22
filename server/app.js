@@ -5,7 +5,7 @@ const io = require('socket.io')(server);
 server.listen(8080);
 
 app.get('/', function (req, res) {
-  	res.sendfile(__dirname + '/index.html');
+	res.sendfile(__dirname + '/index.html');
 });
 
 
@@ -23,18 +23,25 @@ io.on('connection', function (socket) {
 	console.log(cursors);
 
 	socket.emit('hello', cursors);
-  	socket.broadcast.emit('user_enters', cursor);
+	socket.broadcast.emit('user_enters', cursor);
 
 
-  	socket.on('user_moves', function (position){
-  		cursor.position = position;
+	socket.on('user_moves', function (position){
+		cursor.position = position;
 		socket.broadcast.emit('user_moves', cursor);
-  	});
+	});
 
+	socket.on('mouseenter', function(elem_index){
+		socket.broadcast.emit('mouseenter', elem_index);
+	});
 
-  	socket.on('disconnect', function (socket) {
-  		io.sockets.emit('user_exits', cursor);
-  		// socket.broadcast.emit('exit', cursor);
+	socket.on('mouseleave', function(elem_index){
+		socket.broadcast.emit('mouseleave', elem_index);
+	});
+
+	socket.on('disconnect', function (socket) {
+		io.sockets.emit('user_exits', cursor);
+		// socket.broadcast.emit('exit', cursor);
 		delete cursors[cursor.id];
 	});
 });
