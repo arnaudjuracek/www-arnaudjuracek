@@ -14,14 +14,12 @@ let cursors = {};
 io.on('connection', function (socket) {
 	let cursor = {
 		id: socket.id,
-		position: {x:null, y:null}
+		position: {x:null, y:null},
+		isDead: false
 	};
 
 
 	cursors[cursor.id] = cursor;
-	console.log("----------------");
-	console.log(cursors);
-
 	socket.emit('hello', cursors);
 	socket.broadcast.emit('user_enters', cursor);
 
@@ -42,8 +40,7 @@ io.on('connection', function (socket) {
 	socket.on('disconnect', function (socket) {
 		io.sockets.emit('user_exits', cursor);
 		io.sockets.emit('mouseleave', {elem:null, cursor:cursor.id});
-		// socket.broadcast.emit('exit', cursor);
-		delete cursors[cursor.id];
+		cursors[cursor.id].isDead = true;
 	});
 });
 

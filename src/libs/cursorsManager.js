@@ -6,7 +6,7 @@ import Cursor from 'libs/cursor.js';
 
 function cursorsManager(_opts){
 	const opts = Object.assign({
-		collid: false,
+		collid: true,
 		collidRadius: 12,
 		worldBoundaries: true,
 		elem: document.getElementById('cursors') || document.body,
@@ -112,8 +112,13 @@ function cursorsManager(_opts){
 	(function initSocketEvent(){
 		socket = io(opts.socket_adress);
 
-		socket.on('connection', function(clients){
-			// cursors = clients;
+		socket.on('hello', function(clients){
+			for(let c in clients){
+				let client = clients[c];
+				let cursor = new Cursor(client.id, client.position.x, client.position.y, textures.default);
+				if(client.isDead) cursor.kill();
+				add(cursor);
+			}
 		});
 
 		socket.on('user_enters', function(c){
