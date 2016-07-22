@@ -5,15 +5,20 @@ import Cursor from 'libs/cursor.js';
 
 
 function cursorsManager(_opts){
-	const opts = _opts;
+	const opts = Object.assign({
+		collid: false,
+		socket_adress: 'http://localhost:8080'
+	}, _opts);
+
+
 	const
 		Engine = window.Matter.Engine,
 		World = window.Matter.World,
 		Bodies = window.Matter.Bodies,
 		Events = window.Matter.Events;
 
-	let stage, engine, renderer, texture;
-	let cursors = [];
+	let stage, engine, renderer, texture, socket;
+	let cursors = {};
 
 
 
@@ -72,7 +77,10 @@ function cursorsManager(_opts){
 	(function updateRenderer() {
 		requestAnimationFrame(updateRenderer);
 
-		for(var c in cursors) cursors[c].updateSprite();
+		for(let id in cursors){
+  			if(cursors.hasOwnProperty(id)) cursors[id].updateSprite();
+		}
+
 		renderer.render(stage);
 	})();
 
@@ -80,17 +88,64 @@ function cursorsManager(_opts){
 
 	// -------------------------------------------------------------------------
 
+	(function initSocket(){
+		socket = io(opts.socket_adress);
+
+		socket.on('connection', function(clients){
+			// cursors = clients;
+		});
+
+		socket.on('new_user', function(c){
+			let cursor = new Cursor(c.id, c.position.x, c.position.y, texture);
+			add(cursor);
+		});
+
+		socket.on('exit', function(c){
+			kill(c.id);
+		});
+
+		socket.on('move', function(c){
+			let cursor = cursors[c.id] || add(new Cursor(c.id, c.position.x, c.position.y, texture));;
+			cursor.updatePosition(c.position);
+		});
+
+
+		window.addEventListener('mousemove', function(e){
+			setTimeout(function(){
+				socket.emit('move', {
+					x : e.pageX,
+					y : e.pageY
+				});
+			}, 100);
+		});
+
+	})();
+
+
+
+	// -------------------------------------------------------------------------
+
 	function add(cursor){
-		cursors.push(cursor);
+		cursors[cursor.id] = cursor;
 		stage.addChild(cursor.sprite);
 		World.add(engine.world, cursor.hitbox);
+
+		return cursor;
+	}
+
+	function kill(cursorID){
+		cursors[cursorID].kill();
 	}
 
 	function populate(n){
 		for(let i=0; i<n; i++){
 			let x = Math.random() * window.innerWidth;
 			let y = Math.random() * window.innerHeight;
-			add(new Cursor(x, y, texture));
+			let id = Math.random() * 999999;
+
+			let cursor = new Cursor(id, x, y, texture);
+			cursor.kill();
+			add(cursor);
 		}
 	};
 

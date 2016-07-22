@@ -23,7 +23,7 @@ io.on('connection', function (socket) {
 	console.log(cursors);
 
 	socket.emit('hello', cursors);
-  	socket.broadcast.emit('new_user', cursor.id);
+  	socket.broadcast.emit('new_user', cursor);
 
 
   	socket.on('move', function (position){
@@ -32,8 +32,8 @@ io.on('connection', function (socket) {
   	});
 
 
-
   	socket.on('disconnect', function (socket) {
+  		// socket.broadcast.emit('exit', cursor);
 		delete cursors[cursor.id];
 	});
 });
