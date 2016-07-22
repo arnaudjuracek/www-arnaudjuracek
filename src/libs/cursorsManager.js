@@ -52,13 +52,25 @@ function cursorsManager(_opts){
 
 
 	(function initRenderer(){
-		renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight ,{transparent:true});
-		// renderer.renderSession.roundPixels = true; // avoid blury sprites
+		renderer = PIXI.autoDetectRenderer(
+			window.innerWidth,
+			window.innerHeight,
+			{
+				transparent: true,
+			}
+		);
+
 		stage = new PIXI.Container();
-		// texture = PIXI.Texture.fromImage('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAYAAAC9BQwsAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNAay06AAAAAUdEVYdENyZWF0aW9uIFRpbWUAOC83LzEwvsEqxgAAAe9JREFUOI2N081qE1EUB/Bz7teY3GEGRwYSELsQbBkLboTZFGaW4tZko4us8hozD+ADaBKMD2AK2eQBwmySbLIxCW6sIKEgQqMQQ9o6x02nTNU0OXC5m/O7By7/A57nca21JiKaz+c1y7IKnufxKIoQbivHcQwpZZmuajgcVkzTLG7FlmUVOOcPiYh83yciSnfCpmkWOef7REQAsDu+ggcZ3Bn/D+6EN8FNOI5j3ApvxdvgJrwTzOPxePzCtu07eZjmm/LNfx/DMO7+A33fp9ls9jHDrVbrS6/X+4CIrxDxGWPsiVLq3g2YTeh2u8fNZvMkP5UxdsQ5P5BSlrXWOp+clIhSRHyJiNXsIQCgdrv9aTKZvFZKudkSMMYYAcAFAABj7DkifkbEr0mSvK/X6ycAAI1G45Hruk+JCLXWl9VqNc22o8QYe8w535dSloUQDxhjR/mpRJQKIe47jmPEcYysVCpdGobxU0p5qpQ6LRaLZ0KIH4j4PUmSd4PBgIiIRqPRWwC4jpyoVCppp9NZL5fLc601ua5L0+k0XSwWZ2EYviGiYwAgRPwmhFgZhpHeCHsW4CiKMAgCZllWQSnlCiH2hBB72ccEQcAAAHgG+/3+9V2r1WC9Xv9erVbniPhLKbW0bXt1eHh4EYYh9ft9+ANDWHBBjehDcAAAAABJRU5ErkJggg==');
-		textures = {
-			default: PIXI.Texture.fromImage('assets/images/cursors/default.png'),
-			pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer.png')
+		if(window.devicePixelRatio === 2){
+			textures = {
+				default: PIXI.Texture.fromImage('assets/images/cursors/default@2x.png'),
+				pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer@2x.png')
+			}
+		}else{
+			textures = {
+				default: PIXI.Texture.fromImage('assets/images/cursors/default.png'),
+				pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer.png')
+			}
 		}
 
 		opts.elem.appendChild(renderer.view);
