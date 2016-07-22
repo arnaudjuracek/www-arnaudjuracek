@@ -25,7 +25,7 @@ function cursorsManager(_opts){
 	// -------------------------------------------------------------------------
 
 	(function initEngine(){
-		engine = Engine.create();
+		engine = Engine.create(/*document.body*/);
 		engine.world.gravity.x = 0;
 		engine.world.gravity.y = 0;
 
@@ -54,11 +54,14 @@ function cursorsManager(_opts){
 
 	(function initPhysics(){
 		if(opts.collid){
-			let cursor = Bodies.circle(0, 0, 50, { isStatic : true });
+			let cursor = Bodies.circle(0, 0, 12, { isStatic : true });
 			World.add(engine.world, cursor);
 
 			window.addEventListener('mousemove', function(e){
-				Matter.Body.setPosition(cursor, {x : e.pageX, y : e.pageY});
+				Matter.Body.setPosition(cursor, {
+					x : e.pageX + 3,
+					y : e.pageY + 5
+				});
 			});
 		}
 
@@ -88,35 +91,44 @@ function cursorsManager(_opts){
 
 	// -------------------------------------------------------------------------
 
-	(function initSocket(){
+	(function initSocketEvent(){
 		socket = io(opts.socket_adress);
 
 		socket.on('connection', function(clients){
 			// cursors = clients;
 		});
 
-		socket.on('new_user', function(c){
+		socket.on('user_enters', function(c){
 			let cursor = new Cursor(c.id, c.position.x, c.position.y, texture);
 			add(cursor);
 		});
 
-		socket.on('exit', function(c){
+		socket.on('user_exits', function(c){
 			kill(c.id);
 		});
 
-		socket.on('move', function(c){
+		socket.on('user_moves', function(c){
 			let cursor = cursors[c.id] || add(new Cursor(c.id, c.position.x, c.position.y, texture));;
 			cursor.updatePosition(c.position);
 		});
 
+	})();
 
+	(function initSocketCursorEventForwarding(){
 		window.addEventListener('mousemove', function(e){
 			setTimeout(function(){
-				socket.emit('move', {
-					x : e.pageX,
-					y : e.pageY
+				socket.emit('user_moves', {
+					x: e.pageX,
+					y: e.pageY
 				});
 			}, 100);
+		});
+
+		window.addEventListener('click', function(e){
+			socket.emit('user_clicks', {
+				x: e.pageX,
+				y: e.pageY
+			});
 		});
 
 	})();
@@ -151,7 +163,10 @@ function cursorsManager(_opts){
 
 
 
-	return {add, populate};
+	return {
+		add,
+		populate
+	};
 }
 
 export default cursorsManager;

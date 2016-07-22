@@ -23,12 +23,12 @@ io.on('connection', function (socket) {
 	console.log(cursors);
 
 	socket.emit('hello', cursors);
-  	socket.broadcast.emit('new_user', cursor);
+  	socket.broadcast.emit('user_enters', cursor);
 
 
-  	socket.on('move', function (position){
+  	socket.on('user_moves', function (position){
   		cursor.position = position;
-		socket.broadcast.emit('move', cursor);
+		socket.broadcast.emit('user_moves', cursor);
   	});
 
 

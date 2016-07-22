@@ -7,8 +7,6 @@ function Cursor(_id, _x, _y, texture){
 	let sprite = new PIXI.Sprite(texture);
 		sprite.anchor.x = 0.5;
 		sprite.anchor.y = 0.5;
-		sprite.position.x = x;
-		sprite.position.y = y;
 
 	let hitbox = new window.Matter.Bodies.circle(x, y, 5, {
 		friction: 0.1,
@@ -21,7 +19,8 @@ function Cursor(_id, _x, _y, texture){
 	// -------------------------------------------------------------------------
 
 	function updateSprite(){
-		this.sprite.position = this.hitbox.position;
+		this.sprite.position.x = this.hitbox.position.x;
+		this.sprite.position.y = this.hitbox.position.y;
 	}
 
 	function updatePosition(position){
