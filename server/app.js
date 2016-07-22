@@ -32,15 +32,16 @@ io.on('connection', function (socket) {
 	});
 
 	socket.on('mouseenter', function(elem_index){
-		socket.broadcast.emit('mouseenter', elem_index);
+		socket.broadcast.emit('mouseenter', {elem:elem_index, cursor:cursor.id});
 	});
 
 	socket.on('mouseleave', function(elem_index){
-		socket.broadcast.emit('mouseleave', elem_index);
+		socket.broadcast.emit('mouseleave', {elem:elem_index, cursor:cursor.id});
 	});
 
 	socket.on('disconnect', function (socket) {
 		io.sockets.emit('user_exits', cursor);
+		io.sockets.emit('mouseleave', {elem:null, cursor:cursor.id});
 		// socket.broadcast.emit('exit', cursor);
 		delete cursors[cursor.id];
 	});

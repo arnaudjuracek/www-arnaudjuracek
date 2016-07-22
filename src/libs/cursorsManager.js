@@ -113,17 +113,49 @@ function cursorsManager(_opts){
 			cursor.updatePosition(c.position);
 		});
 
-		socket.on('mouseenter', function(index){
-			let elem = elements[index];
-			// elem.setAttribute('data-cursorID', data.cursor);
+		socket.on('mouseenter', function(data){
+			let elem = elements[data.elem];
+
+			addToCursorsList(elem, data.cursor);
 			elem.classList.add('hover');
 		});
 
-		socket.on('mouseleave', function(index){
-			let elem = elements[index];
-			// elem.removeAttribute('data-cursorID', data.cursor);
-			elem.classList.remove('hover');
+		socket.on('mouseleave', function(data){
+			if(data.elem){
+				// let elem = elements[data.elem];
+				// removeFromCursorsList(elem, data.cursor);
+				// if(getCursorsList(elem).length==0){
+				// 	elem.classList.remove('hover');
+				// }
+			}else{
+				for(let i=0, l=elements.length; i<l; i++){
+					let elem = elements[i];
+					removeFromCursorsList(elem, data.cursor);
+					if(getCursorsList(elem).length==0){
+						elem.classList.remove('hover');
+					}
+				}
+			}
 		});
+
+		function getCursorsList(elem){
+			let cursorsList = elem.getAttribute('data-cursors');
+			if(cursorsList) return cursorsList.split(',');
+			else return [];
+		}
+
+		function addToCursorsList(elem, cursorID){
+			let curList = getCursorsList(elem);
+			curList.push(cursorID);
+			elem.setAttribute('data-cursors', curList);
+		}
+
+		function removeFromCursorsList(elem, cursorID){
+			let curList = getCursorsList(elem);
+			let index = curList.indexOf(cursorID);
+			if(index > -1) curList.splice(index, 1);
+			elem.setAttribute('data-cursors', curList);
+		}
 
 	})();
 
