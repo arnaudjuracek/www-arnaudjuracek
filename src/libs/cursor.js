@@ -3,10 +3,7 @@ function Cursor(_id, _x, _y, texture){
 	let x = _x || -100;
 	let y = _y || -100;
 
-
 	let sprite = new PIXI.Sprite(texture);
-		sprite.anchor.x = 0.5;
-		sprite.anchor.y = 0.5;
 
 	let hitbox = new window.Matter.Bodies.circle(x, y, 5, {
 		density: 1,
@@ -22,9 +19,13 @@ function Cursor(_id, _x, _y, texture){
 
 	// -------------------------------------------------------------------------
 
+	function changeSprite(_texture){
+		this.sprite.texture = _texture;
+	}
+
 	function updateSprite(){
-		this.sprite.position.x = this.hitbox.position.x;
-		this.sprite.position.y = this.hitbox.position.y;
+		this.sprite.position.x = Math.floor(this.hitbox.position.x);
+		this.sprite.position.y = Math.floor(this.hitbox.position.y);
 	}
 
 	function updatePosition(position){
@@ -46,6 +47,7 @@ function Cursor(_id, _x, _y, texture){
 		id,
 		sprite,
 		hitbox,
+		changeSprite,
 		updateSprite,
 		updatePosition,
 		kill,
