@@ -6,12 +6,21 @@ import Cursor from 'libs/cursor.js';
 
 function cursorsManager(_opts){
 	const opts = Object.assign({
-		collid: true,
-		collidRadius: 12,
-		worldBoundaries: true,
 		elem: document.getElementById('cursors') || document.body,
-		socket_adress: 'http://localhost:8080',
-		hoverableElementsSelector: 'a'
+		eventForwarding: {
+			ws_adress: 'http://localhost:8080',
+			hoverableElementsSelector: 'a',
+		},
+		physics: {
+			collid: true,
+			collidRadius: 12
+		},
+		engine: {
+			constraintIterations: 2, 	// default 2
+			positionIterations: 6, 		// default 6
+			velocityIterations: 4,		// default 4
+			enableSleeping: false		// default false
+		}
 	}, _opts);
 
 
@@ -21,8 +30,21 @@ function cursorsManager(_opts){
 		Bodies = window.Matter.Bodies,
 		Events = window.Matter.Events;
 
+	let windowWidth = window.innerWidth;
+	let windowHeight = window.innerHeight;
+	window.addEventListener('resize', function(){
+		setTimeout(function(){
+			windowWidth = window.innerWidth;
+			windowHeight = window.innerHeight;
+
+			updateEngineSize(windowWidth, windowHeight);
+			updateRendererSize(windowWidth, windowHeight);
+		}, 300);
+	});
+
 	let stage, engine, renderer, textures, socket;
-	let elements = document.querySelectorAll(opts.hoverableElementsSelector);
+	let worldBoundaries = [];
+	let elements = document.querySelectorAll(opts.eventForwarding.hoverableElementsSelector);
 	let cursors = {};
 
 
@@ -30,31 +52,33 @@ function cursorsManager(_opts){
 	// -------------------------------------------------------------------------
 
 	(function initEngine(){
-		engine = Engine.create(/*document.body*/);
-		engine.world.gravity.x = 0;
-		engine.world.gravity.y = 0;
+		engine = Engine.create(opts.engine);
+		engine.world.gravity.scale = 0;
 
-		if(opts.worldBoundaries){
-			let w = window.innerWidth,
-				h = window.innerHeight,
-				offset = 50,
-				boundaries = [
-					Bodies.rectangle(w*.5, -offset, w + 2 * offset, 100, { isStatic: true }),
-					Bodies.rectangle(w*.5, h + offset, w + 2 * offset, 100, { isStatic: true }),
-					Bodies.rectangle(w + offset, h*.5, 100, h + 2 * offset, { isStatic: true }),
-					Bodies.rectangle(-offset, h*.5, 100, h + 2 * offset, { isStatic: true })
-				];
-			World.add(engine.world, boundaries);
-		}
-
+		updateEngineSize(windowWidth, windowHeight);
+		World.add(engine.world, worldBoundaries);
 		Engine.run(engine);
 	})();
 
 
+	function updateEngineSize(w, h){
+		engine.world.bounds = { min: { x: 0, y: 0 }, max: { x: w, y: h } };
+
+		World.remove(engine.world, worldBoundaries);
+		worldBoundaries = [
+			Bodies.rectangle(w*.5, -50, w + 2*50, 100, { isStatic: true }),
+			Bodies.rectangle(w*.5, h + 50, w + 2*50, 100, { isStatic: true }),
+			Bodies.rectangle(w + 50, h*.5, 100, h + 2*50, { isStatic: true }),
+			Bodies.rectangle(-50, h*.5, 100, h + 2*50, { isStatic: true })
+		];
+		World.add(engine.world, worldBoundaries);
+	}
+
+
 	(function initRenderer(){
 		renderer = PIXI.autoDetectRenderer(
-			window.innerWidth,
-			window.innerHeight,
+			windowWidth,
+			windowHeight,
 			{
 				transparent: true,
 			}
@@ -77,15 +101,20 @@ function cursorsManager(_opts){
 	})();
 
 
+	function updateRendererSize(w, h){
+		renderer.resize(w, h);
+	}
+
+
 	(function initPhysics(){
-		if(opts.collid){
-			let cursor = Bodies.circle(0, 0, opts.collidRadius, { isStatic : true });
+		if(opts.physics.collid){
+			let cursor = Bodies.circle(0, 0, opts.physics.collidRadius, { isStatic : true });
 			World.add(engine.world, cursor);
 
 			window.addEventListener('mousemove', function(e){
 				Matter.Body.setPosition(cursor, {
-					x : e.pageX + 3,
-					y : e.pageY + 5
+					x : e.pageX,
+					y : e.pageY
 				});
 			});
 		}
@@ -110,20 +139,21 @@ function cursorsManager(_opts){
 	// -------------------------------------------------------------------------
 
 	(function initSocketEvent(){
-		socket = io(opts.socket_adress);
+		socket = io(opts.eventForwarding.ws_adress);
 
 		socket.on('hello', function(clients){
 			for(let c in clients){
 				let client = clients[c];
-				let cursor = new Cursor(client.id, client.position.x, client.position.y, textures.default);
+
+				// let x = client.position.percentage.x * windowWidth;
+				// let y = client.position.pixel.y;
+				let x = client.position.pixel.x;
+				let y = client.position.pixel.y;
+
+				let cursor = new Cursor(client.id, x, y, textures.default);
 				if(client.isDead) cursor.kill();
 				add(cursor);
 			}
-		});
-
-		socket.on('user_enters', function(c){
-			let cursor = new Cursor(c.id, c.position.x, c.position.y, textures.default);
-			add(cursor);
 		});
 
 		socket.on('user_exits', function(c){
@@ -131,8 +161,14 @@ function cursorsManager(_opts){
 		});
 
 		socket.on('user_moves', function(c){
-			let cursor = cursors[c.id] || add(new Cursor(c.id, c.position.x, c.position.y, textures.default));;
-			cursor.updatePosition(c.position);
+			// let x = c.position.percentage.x * windowWidth;
+			// let vw = x/c.position.percentage.x;
+			// let y = c.position.percentage.y * vw;
+			let x = c.position.pixel.x;
+			let y = c.position.pixel.y;
+
+			let cursor = cursors[c.id] || add(new Cursor(c.id, x, y, textures.default));;
+			cursor.updatePosition(x, y);
 		});
 
 		socket.on('mouseenter', function(data){
@@ -190,8 +226,14 @@ function cursorsManager(_opts){
 		window.addEventListener('mousemove', function(e){
 			// setTimeout(function(){
 				socket.emit('user_moves', {
-					x: e.pageX,
-					y: e.pageY
+					pixel:{
+						x: e.pageX,
+						y: e.pageY
+					},
+					percentage:{
+						x: (e.pageX/windowWidth),
+						y: (e.pageY/windowHeight)
+					}
 				});
 			// }, 100);
 		});
@@ -228,8 +270,8 @@ function cursorsManager(_opts){
 
 	function populate(n){
 		for(let i=0; i<n; i++){
-			let x = Math.random() * window.innerWidth;
-			let y = Math.random() * window.innerHeight;
+			let x = Math.random() * windowWidth;
+			let y = Math.random() * windowHeight;
 			let id = Math.random() * 999999;
 
 			let cursor = new Cursor(id, x, y, textures.default);

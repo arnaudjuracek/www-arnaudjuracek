@@ -28,10 +28,10 @@ function Cursor(_id, _x, _y, texture){
 		this.sprite.position.y = Math.floor(this.hitbox.position.y);
 	}
 
-	function updatePosition(position){
+	function updatePosition(_x, _y){
 		window.Matter.Body.setPosition(hitbox, {
-			x: position.x,
-			y: position.y
+			x: _x,
+			y: _y
 		});
 	}
 

@@ -14,14 +14,17 @@ let cursors = {};
 io.on('connection', function (socket) {
 	let cursor = {
 		id: socket.id,
-		position: {x:null, y:null},
+		position: {
+			pixel: {x:null, y:null},
+			percentage: {x:null, y:null}
+		},
 		isDead: false
 	};
 
 
 	cursors[cursor.id] = cursor;
 	socket.emit('hello', cursors);
-	socket.broadcast.emit('user_enters', cursor);
+	// socket.broadcast.emit('user_enters', cursor);
 
 
 	socket.on('user_moves', function (position){
