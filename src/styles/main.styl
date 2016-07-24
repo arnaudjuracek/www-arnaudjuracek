@@ -42,18 +42,30 @@ a[href*="//"]:not([href*="mysite.com"]):after
 		// column-count 2
 		header
 			margin-bottom 1.4em
-			&:before
-				content "0000-00-00"
-				visibility hidden
-				margin-right 1em
+			a
+				&:before
+					display none
+
 		a
 			easing(500)
+			position relative
+			margin-left 8em
+			&:before
+				easing(500)
+				content attr(data-date)
+				position absolute
+				height 100%
+				padding-right 1em
+				right 100%
+				color rgba(0,0,0,.4)
+				border-bottom .125em solid transparent
 			&:hover, &.hover
 				easing(0)
 				background rgba(255,255,255,.9)
-			& time
-				margin-right 1em
-				color rgba(0,0,0,.4)
+				&:before
+					easing(0)
+					background rgba(255,255,255,.9)
+					border-bottom .125em solid blue
 	iframe
 		outline none
 		position fixed
@@ -75,6 +87,7 @@ section
 			font-size 8vw
 			font-weight bold
 		aside
+			margin-top .3em
 			font-size 6vw
 	p
 		margin-bottom .4em
@@ -109,3 +122,10 @@ section
 	right 0
 	bottom 0
 	pointer-events none
+
+
+img.blazy
+	outline 10px solid purple
+
+img.blazy-loaded
+	outline 10px solid red
