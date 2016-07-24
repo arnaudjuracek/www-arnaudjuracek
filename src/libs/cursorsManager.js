@@ -1,4 +1,4 @@
-import PIXI from 'libs/pixi.js';
+import PIXI from 'pixi.js';
 import Matter from 'matter-js'; window.Matter = Matter;
 import io from 'socket.io-client';
 import Cursor from 'libs/cursor.js';
@@ -9,11 +9,11 @@ function cursorsManager(_opts){
 		elem: document.getElementById('cursors') || document.body,
 		eventForwarding: {
 			ws_adress: 'http://localhost:8080',
-			hoverableElementsSelector: 'a',
+			hoverableElementsSelector: 'nav a',
 		},
 		physics: {
 			collid: true,
-			collidRadius: 12
+			collidRadius: 50
 		},
 		engine: {
 			constraintIterations: 2, 	// default 2
@@ -113,8 +113,8 @@ function cursorsManager(_opts){
 
 			window.addEventListener('mousemove', function(e){
 				Matter.Body.setPosition(cursor, {
-					x : e.pageX,
-					y : e.pageY
+					x : e.clientX,
+					y : e.clientY
 				});
 			});
 		}
@@ -227,12 +227,12 @@ function cursorsManager(_opts){
 			// setTimeout(function(){
 				socket.emit('user_moves', {
 					pixel:{
-						x: e.pageX,
-						y: e.pageY
+						x: e.clientX,
+						y: e.clientY
 					},
 					percentage:{
-						x: (e.pageX/windowWidth),
-						y: (e.pageY/windowHeight)
+						x: (e.clientX/windowWidth),
+						y: (e.clientY/windowHeight)
 					}
 				});
 			// }, 100);
