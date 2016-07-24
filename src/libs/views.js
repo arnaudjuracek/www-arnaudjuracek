@@ -26,16 +26,22 @@ function Views(_opts){
 
 
 	function loadView(url){
-		var request = new XMLHttpRequest();
+		let request = new XMLHttpRequest();
 		request.open('GET', url, true);
 
 		request.onload = function() {
   			if (request.status >= 200 && request.status < 400) {
-    			var resp = request.responseText;
-    			page.innerHTML = resp;
+    			let view = request.responseText;
+    			setView(url, view);
   			}
 		};
 		request.send();
+	}
+
+
+	function setView(url, view){
+		// document.title = 'arnaud juracek \u2014 ' + url;
+		page.innerHTML = view;
 	}
 
 
