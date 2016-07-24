@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{{{meta.title}}}</title>
+	<meta name="description" content="{{meta.description}}">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+	<base href="./">
+	{{#compiler.isProduction}}
+	<link rel="stylesheet" href="bundle-{{compiler.hash}}.css">
+	{{/compiler.isProduction}}
+</head>
+<body>
+	<main id="page" class="page {{meta.pageID}}">
+
+		<nav role="main">
+			<header><a href="/" class="views" data-page="/views/index.html">arnaud juracek</a></header>
+			<ul>
+				{{#links}}
+					<li>
+						<a href="{{href}}" class="views" data-page="{{id}}">
+							<time>{{date}}</time>
+							{{title}}
+						</a>
+					</li>
+				{{/links}}
+			</ul>
+		</nav>
+
+		<section class="view" id="view">
+			{{#view.template}}
+				{{> project.mustache}}
+			{{/view.template}}
+
+			{{^view.template}}
+				{{{view.content}}}
+			{{/view.template}}
+		</section>
+
+	</main>
+	<div id='cursors'></div>
+	<script src="bundle-{{compiler.hash}}.js"></script>
+</body>
+</html>

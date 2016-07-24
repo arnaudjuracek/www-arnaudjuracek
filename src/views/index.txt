@@ -1,0 +1,9 @@
+---
+content: |
+  <p>
+  Hello,<br/>
+  my name is <a href="#">Arnaud Juracek</a> and I'm a french design student.
+  </p>
+  <p>I design &amp; build real things, virtual things, sometimes both at the same time.</p>
+  <p>You can follow me on <a href="#">twitter</a>, check out my stuff on <a href="#">github</a> or simply <a href="#">mail</a> me.</p>
+  <p>I'm currently looking for an internship btw.</p>

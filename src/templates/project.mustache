@@ -1,0 +1,15 @@
+<header>
+	<h1>{{view.title}}</h1>
+	<aside>
+		<time>{{view.date}}</time>&nbsp;&mdash;&nbsp;{{view.context}}
+	</aside>
+</header>
+<div class="description">
+	{{{view.content}}}
+</div>
+<div class="gallery">
+	{{#view.images}}
+  		<img src="{{value}}">
+	{{/view.images}}
+</div>
+<footer>{{view.license}}</footer>
