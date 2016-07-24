@@ -224,7 +224,7 @@ function cursorsManager(_opts){
 
 	(function initSocketCursorEventForwarding(){
 		window.addEventListener('mousemove', function(e){
-			// setTimeout(function(){
+			setTimeout(function(){
 				socket.emit('user_moves', {
 					pixel:{
 						x: e.clientX,
@@ -235,7 +235,7 @@ function cursorsManager(_opts){
 						y: (e.clientY/windowHeight)
 					}
 				});
-			// }, 100);
+			}, 25);
 		});
 
 		for(let i=0, l=elements.length; i<l; i++){
