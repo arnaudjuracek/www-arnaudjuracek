@@ -251,6 +251,22 @@ function cursorsManager(_opts){
 	})();
 
 
+	function initSyncBrowsing(views){
+		(function bindLinks(){
+			for(let i=0, l=views.links.length; i<l; i++){
+				let link = views.links[i];
+				link.addEventListener('click', function(){
+					let pageID = link.getAttribute('data-page');
+					socket.emit('page_change', pageID);
+				});
+			}
+		})();
+
+		socket.on('page_change', function(pageID){
+			views.loadView(pageID);
+		});
+	}
+
 
 	// -------------------------------------------------------------------------
 
@@ -284,7 +300,8 @@ function cursorsManager(_opts){
 
 	return {
 		add,
-		populate
+		populate,
+		initSyncBrowsing
 	};
 }
 

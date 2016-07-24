@@ -25,9 +25,6 @@ function Views(_opts){
 	})();
 
 
-
-	// -------------------------------------------------------------------------
-
 	function loadView(url){
 		var request = new XMLHttpRequest();
 		request.open('GET', url, true);
@@ -40,6 +37,15 @@ function Views(_opts){
 		};
 		request.send();
 	}
+
+
+
+	// -------------------------------------------------------------------------
+
+	return {
+		links,
+		loadView
+	};
 
 }
 
