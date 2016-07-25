@@ -1,15 +1,33 @@
 <header>
 	<h1>{{view.title}}</h1>
 	<aside>
-		<time>{{view.date}}</time>&nbsp;&mdash;&nbsp;{{view.context}}
+		{{#view.date}}
+			<time>{{view.date}}</time>
+		{{/view.date}}
+		{{#view.context}}
+			{{#view.date}}
+				&nbsp;&mdash;&nbsp;
+			{{/view.date}}
+			{{view.context}}
+		{{/view.context}}
 	</aside>
 </header>
-<div class="description">
-	{{{view.content}}}
-</div>
-<div class="gallery">
-	{{#view.images}}
-  		<img src="{{value}}">
-	{{/view.images}}
-</div>
+
+{{#view.content}}
+	<div class="description">{{{view.content}}}</div>
+{{/view.content}}
+
+{{#view.images}}
+	<div class="gallery">
+		{{#view.images}}
+			<!-- <img class="blazy"
+				src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+				data-src="{{value}}"
+			/>
+			<noscript><img src="{{value}}"></noscript> -->
+			<img src="{{value}}">
+		{{/view.images}}
+	</div>
+{{/view.images}}
+
 <footer>{{view.license}}</footer>
