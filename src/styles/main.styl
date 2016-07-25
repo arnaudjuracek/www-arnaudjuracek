@@ -19,8 +19,8 @@ a:hover, a.hover
 	easing(0)
 	color blue
 	border-bottom-color blue
-a[href*="//"]:not([href*="mysite.com"]):after
-	content "->()"
+// a[href*="//"]:not([href*="mysite.com"]):after
+	// content "->()"
 
 
 // -------------------------------------------------------------------------
@@ -34,22 +34,55 @@ a[href*="//"]:not([href*="mysite.com"]):after
 		width 0
 		overflow visible
 		white-space nowrap
-
 		z-index 2
 		top 50px
 		left 25px
 		line-height 1.4em
 		// column-count 2
+
+		// -------------------------------------------------------------------------
+		input.hamburger
+			display none
+		+media(mobile)
+			header
+				position fixed
+				top 50px
+				left 25px
+				& a
+					margin-left 0
+			ul
+				position fixed
+				top 50px
+				right 25px
+				margin-top 2em
+				text-align right
+
+			input.hamburger
+				&~ul
+					display none
+				&:checked~ul
+					display block
+				&:checked~label[for="hamburger"]
+					transform rotate(90deg)
+			label[for="hamburger"]
+				easing(100)
+				position fixed
+				right 25px
+				display block
+				width 1.4em
+				height 1.4em
+				cursor pointer
+				background-image url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>")
+				background-size contain
+		// -------------------------------------------------------------------------
 		header
 			margin-bottom 1.4em
-			a
-				&:before
-					display none
-
+			a:before
+				display none
 		a
 			easing(500)
 			position relative
-			margin-left 8em
+			margin-left 5em
 			&:before
 				easing(500)
 				content attr(data-date)
@@ -66,53 +99,46 @@ a[href*="//"]:not([href*="mysite.com"]):after
 					easing(0)
 					background rgba(255,255,255,.9)
 					border-bottom .125em solid blue
-	iframe
-		outline none
-		position fixed
-		top 0
-		left 0
-		right 0
-		bottom 0
-section
-	z-index 1
-	font-family 'Open Sans'
-	font-weight bold
-	font-size 8vw
-	padding 50px
-	padding-top 100vh
-	margin-top -1.7em
-	header
-		margin-bottom 1em
-		h1
-			font-size 8vw
-			font-weight bold
-		aside
-			margin-top .3em
-			font-size 6vw
-	p
-		margin-bottom .4em
+	section
+		z-index 1
+		font-family 'Open Sans'
+		font-weight bold
+		font-size 8vw
+		padding 50px
+		padding-top 100vh
+		margin-top -1.7em
+		header
+			margin-bottom 1em
+			h1
+				font-size 8vw
+				font-weight bold
+			aside
+				margin-top .3em
+				font-size 6vw
+		p
+			margin-bottom .4em
 
-	.description, footer
-		margin 0 auto
-		max-width 33vw
-		max-width 600px
-		line-height 1.2em
-		font-size 20px
-	footer
-		text-align right
-		margin-top 1em
+		.description, footer
+			margin 0 auto
+			max-width 33vw
+			max-width 600px
+			line-height 1.2em
+			font-size 20px
+		footer
+			text-align right
+			margin-top 1em
 
-	.gallery
-		margin-top 1em
-		// column-count 5
-		column-gap 25px
-		line-height 0
-		img
-			margin-bottom 25px
-			width 100%
-			height auto
-			&:last-child
-				margin-bottom 0
+		.gallery
+			margin-top 1em
+			// column-count 5
+			column-gap 25px
+			line-height 0
+			img
+				margin-bottom 25px
+				width 100%
+				height auto
+				&:last-child
+					margin-bottom 0
 
 #cursors
 	position fixed
