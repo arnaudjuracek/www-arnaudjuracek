@@ -2,7 +2,7 @@
 	<h1>{{view.title}}</h1>
 	<aside>
 		{{#view.date}}
-			<time>{{view.date}}</time>
+			<time>{{view.date.year}}</time>
 		{{/view.date}}
 		{{#view.context}}
 			{{#view.date}}
@@ -14,20 +14,29 @@
 </header>
 
 {{#view.content}}
-	<div class="description">{{{view.content}}}</div>
+<div class="description">{{{view.content}}}</div>
 {{/view.content}}
 
-{{#view.images}}
-	<div class="gallery">
-		{{#view.images}}
-			<!-- <img class="blazy"
-				src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-				data-src="{{value}}"
-			/>
-			<noscript><img src="{{value}}"></noscript> -->
-			<img src="{{value}}">
-		{{/view.images}}
+{{#view.vimeo}}
+<div class="gallery">
+	<div class="iframe-ratio">
+		<iframe src="http://player.vimeo.com/video/{{view.vimeo}}?byline=0&amp;portrait=0&amp;title=0&amp;color=FFFFFF"></iframe>
 	</div>
-{{/view.images}}
+</div>
+{{/view.vimeo}}
 
-<footer>{{view.license}}</footer>
+<div class="gallery" data-column="2">
+	{{#view.images}}
+
+	<!-- <img class="blazy"
+		src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+		data-src="{{value}}"
+	/>
+	<noscript><img src="{{value}}"></noscript> -->
+	<img src="{{value}}">
+	{{/view.images}}
+</div>
+
+{{#view.license}}
+<footer>{{{view.license}}}</footer>
+{{/view.license}}

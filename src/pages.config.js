@@ -18,7 +18,7 @@ let pages = {
 		data: {
 			links: [],
 			meta: {
-				title: 'arnaud juracek',
+				title: 'Arnaud Juracek',
 				description: 'portfolio',
 				pageID: 'home'
 			}
@@ -48,7 +48,7 @@ let pages = {
 					pages['views/' + basename + '.html'] = page.view;
 					pages[basename + '.html'] = page.full;
 
-					let link = makeLink(basename, view);
+					let link = makeLink(basename, page.view);
 					if(link) links.push(link);
 
 				}catch(e){
@@ -60,8 +60,8 @@ let pages = {
 
 	(function sortLinksbyDate(){
 		links.sort(function(a, b){
-			var a = a.date,
-				b = b.date;
+			var a = a.date.timestamp,
+				b = b.date.timestamp;
 			if(a > b) return -1;
 			if(a < b) return 1;
 			return 0;
@@ -79,9 +79,7 @@ let pages = {
 			template: view.template + ".mustache",
 			data: {
 				meta: {
-					title: function(){
-						return (view.title) ? 'arnaud juracek &#8212; ' + view.title.toLowerCase() : 'arnaud juracek'
-					},
+					title: 'Arnaud Juracek',
 					description: 'portfolio',
 					pageID: view.template
 				},
@@ -89,15 +87,29 @@ let pages = {
 			}
 		};
 
-		for(let key in view){
-			let value = view[key];
-			if(Array.isArray(value)){
-				let o = [];
-				for(let k in value) o.push({value: value[k]});
-				value = o;
+		(function assignYAMLKeys(){
+			for(let key in view){
+				let value = view[key];
+				if(Array.isArray(value)){
+					let o = [];
+					for(let k in value) o.push({value: value[k]});
+					value = o;
+				}
+				page.data.view[key] = value;
 			}
-			page.data.view[key] = value;
-		}
+		})();
+
+		(function parseDate(){
+			if(page.data.view.date){
+				let date = new Date(page.data.view.date);
+				page.data.view.date = {
+					timestamp: date.getTime(),
+					year: date.getFullYear(),
+					month: date.getMonth(),
+					day: date.getDate()
+				};
+			}
+		})();
 
 		return {
 			view: clone(page),
@@ -105,13 +117,13 @@ let pages = {
 		};
 	}
 
-	function makeLink(basename, view){
-		if(view.title){
+	function makeLink(basename, page){
+		if(page.data.view.title){
 			return {
 					id: '/views/' + basename + '.html',
 					href: '/' + basename + '.html',
-					date: view.date,
-					title: view.title
+					date: page.data.view.date,
+					title: page.data.view.title
 				};
 		}else return null;
 	}
