@@ -31,7 +31,7 @@
 
 
 {{#view.images}}
-	<div class="gallery gallery-columns" data-columns="2">
+	<div class="gallery {{#view.images-columns}}gallery-columns-{{view.images-columns}}{{/view.images-columns}}" data-columns="2">
 		{{#items}}
 			<img class="blazy"
 				src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
