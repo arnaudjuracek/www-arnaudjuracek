@@ -1,12 +1,12 @@
 function Views(_opts){
 	const opts = Object.assign({
 		linkSelector: 'a.views',
-		sectionID: '#view'
+		sectionID: '#view',
+		loadEvent: new Event('view-load')
 	}, _opts);
 
 	let links;
 	let page = document.querySelector(opts.sectionID);
-
 
 
 	// -------------------------------------------------------------------------
@@ -40,17 +40,21 @@ function Views(_opts){
 
 
 	function setView(url, view){
-		// document.title = 'arnaud juracek \u2014 ' + url;
 		page.innerHTML = view;
+		window.dispatchEvent(opts.loadEvent);
 	}
 
+	function onLoad(callback){
+		window.addEventListener(opts.loadEvent.type, callback);
+	}
 
 
 	// -------------------------------------------------------------------------
 
 	return {
 		links,
-		loadView
+		loadView,
+		onLoad
 	};
 
 }
