@@ -1,19 +1,35 @@
-const app = require('express')();
+const path = require('path');
+const express = require('express');
+const app = express();
+
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-server.listen(8080);
-
-app.get('/', function (req, res) {
-	res.sendfile(__dirname + '/index.html');
-});
 
 
 // -------------------------------------------------------------------------
+
 const opts = {
+	publicDir: '/public',
+	port: 8080,
+
 	cursorsMaxLength: 1000
 };
+const staticPath = path.join(__dirname, opts.publicDir);
 
+
+
+// -------------------------------------------------------------------------
+
+app.use(express.static(staticPath));
+server.listen(opts.port, function(){
+	console.log('\x1b[36mlistening', staticPath, '\x1b[0m');
+});
+
+
+
+
+// -------------------------------------------------------------------------
 
 (function initSocket(){
 	let cursors = {};
@@ -64,7 +80,6 @@ const opts = {
 
 			// delete oldest cursors when limit reached
 			for(let index in cursors){
-				console.log(index);
 				if(Object.keys(cursors).length > opts.cursorsMaxLength){
 					if(cursors[index].isDead) delete cursors[index];
 				}else break;
