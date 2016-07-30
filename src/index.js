@@ -9,13 +9,33 @@ if(!isMobile){
 	const cm = cursorsManager();
 	cm.initSyncBrowsing(views);
 
-	const blazy = new Blazy({
-		selector: '.blazy',
-		successClass : 'blazy-loaded',
-		errorClass : 'blazy-failed'
-	});
+	(function initBlazy(){
+		const blazy = new Blazy({
+			selector: '.blazy',
+			successClass : 'blazy-loaded',
+			errorClass : 'blazy-failed'
+		});
 
-	views.onLoad(function(){
-		blazy.revalidate();
-	});
+		views.onLoad(function(){
+			blazy.revalidate();
+		});
+	})();
+
+	(function avoidFOUC(){
+		window.addEventListener('load', function(){
+			document.body.classList.remove('preload');
+
+			window.addEventListener('resize', function(){
+				setTimeout(function(){
+					document.body.classList.add('preload');
+
+					clearTimeout(window.resizedFinished);
+					window.resizedFinished = setTimeout(function(){
+						document.body.classList.remove('preload');
+					}, 250);
+				}, 250);
+			});
+
+		});
+	})();
 }

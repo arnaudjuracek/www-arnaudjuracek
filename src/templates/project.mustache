@@ -24,22 +24,20 @@
 {{#view.vimeo}}
 	<div class="gallery">
 		<div class="iframe-ratio">
-			<iframe src="https://player.vimeo.com/video/{{view.vimeo}}?color=FFFFFF&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<iframe src="https://player.vimeo.com/video/{{view.vimeo}}?color=FFFFFF&byline=0&portrait=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 	</div>
 {{/view.vimeo}}
 
 
 {{#view.images}}
-	<div class="gallery" data-columns="2">
+	<div class="gallery gallery-columns" data-columns="2">
 		{{#items}}
-
 			<img class="blazy"
 				src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 				data-src="{{item}}"
 			/>
 			<noscript><img src="{{item}}"></noscript>
-			<!-- <img src="{{item}}"> -->
 		{{/items}}
 	</div>
 {{/view.images}}
