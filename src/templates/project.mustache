@@ -1,42 +1,59 @@
-<header>
-	<h1>{{view.title}}</h1>
-	<aside>
-		{{#view.date}}
-			<time>{{view.date.year}}</time>
-		{{/view.date}}
-		{{#view.context}}
+{{#view.title}}
+	<header>
+		<h1>{{view.title}}</h1>
+		<aside>
 			{{#view.date}}
-				&nbsp;&mdash;&nbsp;
+				<time>{{view.date.year}}</time>
 			{{/view.date}}
-			{{view.context}}
-		{{/view.context}}
-	</aside>
-</header>
+			{{#view.context}}
+				{{#view.date}}
+					&nbsp;&mdash;&nbsp;
+				{{/view.date}}
+				{{view.context}}
+			{{/view.context}}
+		</aside>
+	</header>
+{{/view.title}}
+
 
 {{#view.content}}
-<div class="description">{{{view.content}}}</div>
+	<div class="description">{{{view.content}}}</div>
 {{/view.content}}
 
+
 {{#view.vimeo}}
-<div class="gallery">
-	<div class="iframe-ratio">
-		<iframe src="http://player.vimeo.com/video/{{view.vimeo}}?byline=0&amp;portrait=0&amp;title=0&amp;color=FFFFFF"></iframe>
+	<div class="gallery">
+		<div class="iframe-ratio">
+			<iframe src="https://player.vimeo.com/video/{{view.vimeo}}?color=FFFFFF&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
 	</div>
-</div>
 {{/view.vimeo}}
 
-<div class="gallery" data-column="2">
-	{{#view.images}}
 
-	<!-- <img class="blazy"
-		src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-		data-src="{{value}}"
-	/>
-	<noscript><img src="{{value}}"></noscript> -->
-	<img src="{{value}}">
-	{{/view.images}}
-</div>
+{{#view.images}}
+	<div class="gallery" data-columns="2">
+		{{#items}}
 
-{{#view.license}}
-<footer>{{{view.license}}}</footer>
-{{/view.license}}
+			<img class="blazy"
+				src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+				data-src="{{item}}"
+			/>
+			<noscript><img src="{{item}}"></noscript>
+			<!-- <img src="{{item}}"> -->
+		{{/items}}
+	</div>
+{{/view.images}}
+
+<footer>
+	{{#view.license}}
+		{{{view.license}}}
+	{{/view.license}}
+
+	{{#view.peoples}}
+		<ul>
+		{{#items}}
+			<li>{{{item}}}</li>
+		{{/items}}
+		</ul>
+	{{/view.peoples}}
+</footer>

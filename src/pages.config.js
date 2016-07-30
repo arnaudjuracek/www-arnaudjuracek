@@ -90,14 +90,19 @@ let pages = {
 		(function assignYAMLKeys(){
 			for(let key in view){
 				let value = view[key];
-				if(Array.isArray(value)){
-					let o = [];
-					for(let k in value) o.push({value: value[k]});
-					value = o;
-				}
+				(function formatDataMustacheArrays(){
+					if(Array.isArray(value)){
+						let items = [];
+						for(let i in value){
+							items.push( {item:value[i]} );
+						}
+						value = {items: items};
+					}
+				})();
 				page.data.view[key] = value;
 			}
 		})();
+		// console.log(page.data.view.images);
 
 		(function parseDate(){
 			if(page.data.view.date){
