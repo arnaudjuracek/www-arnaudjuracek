@@ -8,10 +8,14 @@ if(!isMobile){
 	const views = Views();
 	const cm = cursorsManager();
 	cm.initSyncBrowsing(views);
-}
 
-// const blazy = new Blazy({
-// 	selector: 'img.blazy',
-// 	successClass : 'blazy-loaded',
-// 	errorClass : 'blazy-failed'
-// });
+	const blazy = new Blazy({
+		selector: '.blazy',
+		successClass : 'blazy-loaded',
+		errorClass : 'blazy-failed'
+	});
+
+	views.onLoad(function(){
+		blazy.revalidate();
+	});
+}
