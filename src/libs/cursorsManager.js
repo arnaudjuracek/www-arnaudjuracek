@@ -8,7 +8,8 @@ function cursorsManager(_opts){
 	const opts = Object.assign({
 		elem: document.getElementById('cursors') || document.body,
 		eventForwarding: {
-			ws_adress: 'http://localhost:8080',
+			// ws_adress: 'http://localhost:8080',
+			ws_adress: 'http://arnaudjuracek.fr/',
 			hoverableElementsSelector: 'nav a',
 		},
 		physics: {
