@@ -37,7 +37,8 @@ server.listen(opts.port, function(){
 
 	io.on('connection', function (socket) {
 		let cursor = {
-			id: socket.id,
+			// id: socket.id,
+			id: socket.request.connection.remoteAddress,
 			position: {
 				pixel: {x:null, y:null},
 				percentage: {x:null, y:null}
