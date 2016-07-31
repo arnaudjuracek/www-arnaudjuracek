@@ -1,9 +1,11 @@
-function Cursor(_id, _x, _y, texture){
+function Cursor(_id, _x, _y, _textures){
 	const id = _id;
+	const textures = _textures;
 	let x = _x || -100;
 	let y = _y || -100;
 
-	let sprite = new PIXI.Sprite(texture);
+	let sprite = new PIXI.Sprite(textures.default);
+	let isHover = false;
 
 	let hitbox = new window.Matter.Bodies.circle(x, y, 5, {
 		density: 1,
@@ -19,8 +21,10 @@ function Cursor(_id, _x, _y, texture){
 
 	// -------------------------------------------------------------------------
 
-	function changeSprite(_texture){
-		this.sprite.texture = _texture;
+	function setHover(_isHover){
+		this.isHover = _isHover;
+		if(_isHover===true) this.sprite.texture = this.textures.pointer;
+		else this.sprite.texture = this.textures.default;
 	}
 
 	function updateSprite(){
@@ -47,7 +51,9 @@ function Cursor(_id, _x, _y, texture){
 		id,
 		sprite,
 		hitbox,
-		changeSprite,
+		isHover,
+		textures,
+		setHover,
 		updateSprite,
 		updatePosition,
 		kill,
