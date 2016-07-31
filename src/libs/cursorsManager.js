@@ -162,7 +162,7 @@ function cursorsManager(_opts){
 				let x = client.position.pixel.x;
 				let y = client.position.pixel.y;
 
-				let cursor = new Cursor(client.id, x, y, (c.isMac ? textures.osx : textures.windows));
+				let cursor = new Cursor(client.id, x, y, (client.isMac ? textures.osx : textures.windows));
 				if(client.isDead) cursor.kill();
 				add(cursor);
 			}
