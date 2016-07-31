@@ -2,6 +2,7 @@ import PIXI from 'pixi.js';
 import Matter from 'matter-js'; window.Matter = Matter;
 import io from 'socket.io-client';
 import Cursor from 'libs/cursor.js';
+import _debounce from 'lodash/debounce';
 
 
 function cursorsManager(_opts){
@@ -32,15 +33,15 @@ function cursorsManager(_opts){
 
 	let windowWidth = window.innerWidth;
 	let windowHeight = window.innerHeight;
-	window.addEventListener('resize', function(){
-		setTimeout(function(){
-			windowWidth = window.innerWidth;
-			windowHeight = window.innerHeight;
 
-			updateEngineSize(windowWidth, windowHeight);
-			updateRendererSize(windowWidth, windowHeight);
-		}, 300);
-	});
+	const onResize = _debounce(function(){
+		windowWidth = window.innerWidth;
+		windowHeight = window.innerHeight;
+
+		updateEngineSize(windowWidth, windowHeight);
+		updateRendererSize(windowWidth, windowHeight);
+	}, 300);
+	window.addEventListener('resize', onResize);
 
 	let stage, engine, renderer, textures, socket;
 	let worldBoundaries = [];
@@ -236,18 +237,16 @@ function cursorsManager(_opts){
 
 	(function initSocketCursorEventForwarding(){
 		window.addEventListener('mousemove', function(e){
-			setTimeout(function(){
-				socket.emit('user_moves', {
-					pixel:{
-						x: e.clientX,
-						y: e.clientY
-					},
-					percentage:{
-						x: (e.clientX/windowWidth),
-						y: (e.clientY/windowHeight)
-					}
-				});
-			}, 25);
+			socket.emit('user_moves', {
+				pixel:{
+					x: e.clientX,
+					y: e.clientY
+				},
+				percentage:{
+					x: (e.clientX/windowWidth),
+					y: (e.clientY/windowHeight)
+				}
+			});
 		});
 
 		for(let i=0, l=elements.length; i<l; i++){
