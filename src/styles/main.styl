@@ -1,6 +1,9 @@
 html, body
 	height 100%
 	margin 0
+	.preload *, .preload *::after, .preload *::before
+		transition none !important
+
 
 body
 	background white
@@ -19,9 +22,15 @@ a:hover, a.hover
 	easing(0)
 	color blue
 	border-bottom-color blue
-// a[href*="//"]:not([href*="mysite.com"]):after
-	// content "->()"
 
+#cursors
+	position fixed
+	z-index 99999
+	top 0
+	left 0
+	right 0
+	bottom 0
+	pointer-events none
 
 // -------------------------------------------------------------------------
 
@@ -34,6 +43,7 @@ a:hover, a.hover
 		width 0
 		overflow visible
 		white-space nowrap
+		// --/
 		z-index 2
 		top 50px
 		left 25px
@@ -77,13 +87,13 @@ a:hover, a.hover
 		// -------------------------------------------------------------------------
 		header
 			margin-bottom 1.4em
-			a:before
+			a::before
 				display none
 		a
 			easing(500)
 			position relative
-			margin-left 5em
-			&:before
+			margin-left 4em
+			&::before
 				easing(500)
 				content attr(data-date)
 				position absolute
@@ -95,7 +105,7 @@ a:hover, a.hover
 			&:hover, &.hover
 				easing(0)
 				background rgba(255,255,255,.9)
-				&:before
+				&::before
 					easing(0)
 					background rgba(255,255,255,.9)
 					border-bottom .125em solid blue
@@ -120,38 +130,53 @@ a:hover, a.hover
 
 		.description, footer
 			margin 0 auto
-			max-width 33vw
 			max-width 600px
-			line-height 1.2em
+			line-height 1.3em
 			font-size 20px
+			margin-bottom 8vw
+			p
+				margin-bottom 1em
 		footer
 			text-align right
 			margin-top 1em
-
+			div:not(:last-child)
+				margin-bottom 1em
 		.gallery
-			margin-top 1em
-			// column-count 5
+			&.gallery-columns-2{column-count:2;}
+			&.gallery-columns-3{column-count:3;}
+			&.gallery-columns-4{column-count:4;}
+			+media(mobile)
+				&.gallery-columns-2,
+				&.gallery-columns-3,
+				&.gallery-columns-4{column-count:1;}
 			column-gap 25px
 			line-height 0
 			img
+				display block
 				margin-bottom 25px
 				width 100%
 				height auto
 				&:last-child
 					margin-bottom 0
+			.iframe-ratio
+				margin-bottom 25px
+				position relative
+				width 100%
+				height 0
+				padding-bottom 51%
+				iframe
+					position: absolute
+					width: 100%
+					height: 100%
+					left: 0
+					top: 0
 
-#cursors
-	position fixed
-	z-index 99999
-	top 0
-	left 0
-	right 0
-	bottom 0
-	pointer-events none
+
+// -------------------------------------------------------------------------
 
 
-img.blazy
-	outline 10px solid purple
-
-img.blazy-loaded
-	outline 10px solid red
+.blazy
+	opacity 0
+	&.blazy-loaded
+		easing(1000)
+		opacity 1
