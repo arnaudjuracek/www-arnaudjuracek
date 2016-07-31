@@ -42,7 +42,8 @@ server.listen(opts.port, function(){
 				pixel: {x:null, y:null},
 				percentage: {x:null, y:null}
 			},
-			isDead: false
+			isDead: false,
+			isMac: (socket.handshake.headers['user-agent'].toUpperCase().indexOf('MAC') >= 0)
 		};
 
 		// CLIENT CONNECTS

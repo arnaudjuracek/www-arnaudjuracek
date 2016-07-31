@@ -87,14 +87,26 @@ function cursorsManager(_opts){
 		stage = new PIXI.Container();
 		if(window.devicePixelRatio === 2){
 			textures = {
-				default: PIXI.Texture.fromImage('assets/images/cursors/default@2x.png'),
-				pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer@2x.png')
-			}
+				osx:{
+					default: PIXI.Texture.fromImage('assets/images/cursors/default@2x.png'),
+					pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer@2x.png')
+				},
+				windows:{
+					default: PIXI.Texture.fromImage('assets/images/cursors/win_default.png'),
+					pointer: PIXI.Texture.fromImage('assets/images/cursors/win_pointer.png')
+				}
+			};
 		}else{
 			textures = {
-				default: PIXI.Texture.fromImage('assets/images/cursors/default.png'),
-				pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer.png')
-			}
+				osx:{
+					default: PIXI.Texture.fromImage('assets/images/cursors/default.png'),
+					pointer: PIXI.Texture.fromImage('assets/images/cursors/pointer.png')
+				},
+				windows:{
+					default: PIXI.Texture.fromImage('assets/images/cursors/win_default.png'),
+					pointer: PIXI.Texture.fromImage('assets/images/cursors/win_pointer.png')
+				}
+			};
 		}
 
 		opts.elem.appendChild(renderer.view);
@@ -150,7 +162,7 @@ function cursorsManager(_opts){
 				let x = client.position.pixel.x;
 				let y = client.position.pixel.y;
 
-				let cursor = new Cursor(client.id, x, y, textures.default);
+				let cursor = new Cursor(client.id, x, y, (c.isMac ? textures.osx : textures.windows));
 				if(client.isDead) cursor.kill();
 				add(cursor);
 			}
@@ -167,12 +179,12 @@ function cursorsManager(_opts){
 			let x = c.position.pixel.x;
 			let y = c.position.pixel.y;
 
-			let cursor = cursors[c.id] || add(new Cursor(c.id, x, y, textures.default));;
+			let cursor = cursors[c.id] || add(new Cursor(c.id, x, y, (c.isMac ? textures.osx : textures.windows)));
 			cursor.updatePosition(x, y);
 		});
 
 		socket.on('mouseenter', function(data){
-			cursors[data.cursor].changeSprite(textures.pointer);
+			cursors[data.cursor].setHover(true);
 
 			let elem = elements[data.elem];
 
@@ -181,7 +193,7 @@ function cursorsManager(_opts){
 		});
 
 		socket.on('mouseleave', function(data){
-			cursors[data.cursor].changeSprite(textures.default);
+			cursors[data.cursor].setHover(false);
 
 			if(data.elem){
 				let elem = elements[data.elem];
@@ -290,7 +302,7 @@ function cursorsManager(_opts){
 			let y = Math.random() * windowHeight;
 			let id = Math.random() * 999999;
 
-			let cursor = new Cursor(id, x, y, textures.default);
+			let cursor = new Cursor(id, x, y, ((Math.random()>.5)?textures.osx:textures.windows));
 			cursor.kill();
 			add(cursor);
 		}
