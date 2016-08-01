@@ -155,6 +155,7 @@ function cursorsManager(_opts){
 		socket = io(opts.eventForwarding.ws_adress);
 
 		socket.on('hello', function(clients){
+			clearAll();
 			for(let c in clients){
 				let client = clients[c];
 
@@ -180,32 +181,31 @@ function cursorsManager(_opts){
 			let x = c.position.pixel.x;
 			let y = c.position.pixel.y;
 
-			let cursor = cursors[c.id] || add(new Cursor(c.id, x, y, (c.isMac ? textures.osx : textures.windows)));
-			cursor.updatePosition(x, y);
+			safeCursor(c).updatePosition(x, y);
 		});
 
 		socket.on('mouseenter', function(data){
-			cursors[data.cursor].setHover(true);
+			safeCursor(data.cursor).setHover(true);
 
 			let elem = elements[data.elem];
 
-			addToCursorsList(elem, data.cursor);
+			addToCursorsList(elem, data.cursor.id);
 			elem.classList.add('hover');
 		});
 
 		socket.on('mouseleave', function(data){
-			cursors[data.cursor].setHover(false);
+			safeCursor(data.cursor).setHover(false);
 
 			if(data.elem){
 				let elem = elements[data.elem];
-				removeFromCursorsList(elem, data.cursor);
+				removeFromCursorsList(elem, data.cursor.id);
 				if(getCursorsList(elem).length==0){
 					elem.classList.remove('hover');
 				}
 			}else{
 				for(let i=0, l=elements.length; i<l; i++){
 					let elem = elements[i];
-					removeFromCursorsList(elem, data.cursor);
+					removeFromCursorsList(elem, data.cursor.id);
 					if(getCursorsList(elem).length==0){
 						elem.classList.remove('hover');
 					}
@@ -281,6 +281,11 @@ function cursorsManager(_opts){
 
 	// -------------------------------------------------------------------------
 
+	function safeCursor(c){
+		let safeCursor = cursors[c.id] || add(new Cursor(c.id, c.position.pixel.x, c.position.pixel.y, (c.isMac ? textures.osx : textures.windows)));
+		return safeCursor;
+	}
+
 	function add(cursor){
 		cursors[cursor.id] = cursor;
 		stage.addChild(cursor.sprite);
@@ -293,6 +298,17 @@ function cursorsManager(_opts){
 		cursor.kill();
 
 		return cursor;
+	}
+
+	function clear(cursor){
+		stage.removeChild(cursor.sprite);
+		World.remove(engine.world, cursor.hitbox);
+
+		delete cursors[cursor.id];
+	}
+
+	function clearAll(){
+		for(let c in cursors) clear(cursors[c]);
 	}
 
 	function populate(n){

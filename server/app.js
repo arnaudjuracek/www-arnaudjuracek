@@ -61,17 +61,18 @@ server.listen(opts.port, function(){
 		// CLIENT MOVES
 		socket.on('user_moves', function (position){
 			cursor.position = position;
+			cursor.isDead = false;
 			socket.broadcast.emit('user_moves', cursor);
 		});
 
 		// CLIENT STARTS HOVERING
 		socket.on('mouseenter', function(elem_index){
-			socket.broadcast.emit('mouseenter', {elem:elem_index, cursor:cursor.id});
+			socket.broadcast.emit('mouseenter', {elem:elem_index, cursor:cursor});
 		});
 
 		// CLIENT ENDS HOVERING
 		socket.on('mouseleave', function(elem_index){
-			socket.broadcast.emit('mouseleave', {elem:elem_index, cursor:cursor.id});
+			socket.broadcast.emit('mouseleave', {elem:elem_index, cursor:cursor});
 		});
 
 		// CLIENT CHANGES PAGE
@@ -83,7 +84,7 @@ server.listen(opts.port, function(){
 		// CLIENTS DISCONNECTS
 		socket.on('disconnect', function (socket) {
 			io.sockets.emit('user_exits', cursor);
-			io.sockets.emit('mouseleave', {elem:null, cursor:cursor.id});
+			io.sockets.emit('mouseleave', {elem:null, cursor:cursor});
 			cursors[cursor.id].isDead = true;
 
 			// delete oldest cursors when limit reached
@@ -101,7 +102,12 @@ server.listen(opts.port, function(){
 	// -------------------------------------------------------------------------
 
 	function writeCursorsFile(filename, _cursors){
-		jsonfile.writeFile(filename, _cursors, {spaces: 2});
+		let cursorsToWrite = {};
+		for(let index in _cursors){
+			let c = _cursors[index];
+			if(c.isDead) cursorsToWrite[index] = c;
+		}
+		jsonfile.writeFile(filename, cursorsToWrite, {spaces: 2});
 	}
 
 	function getCursorsFromFile(filename){
