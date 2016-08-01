@@ -14,7 +14,7 @@ function cursorsManager(_opts){
 		},
 		physics: {
 			collid: true,
-			collidRadius: 50
+			collidRadius: 100
 		},
 		engine: {
 			constraintIterations: 2, 	// default 2

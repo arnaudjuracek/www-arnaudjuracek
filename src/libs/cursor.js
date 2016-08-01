@@ -7,7 +7,7 @@ function Cursor(_id, _x, _y, _textures){
 	let sprite = new PIXI.Sprite(textures.default);
 	let isHover = false;
 
-	let hitbox = new window.Matter.Bodies.circle(x, y, 5, {
+	let hitbox = new window.Matter.Bodies.circle(x, y, 10, {
 		density: 1,
 		friction: 0,
 		frictionStatic: 0.5,
