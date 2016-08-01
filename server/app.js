@@ -5,7 +5,8 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-
+const fs = require('fs');
+const jsonfile = require('jsonfile');
 
 // -------------------------------------------------------------------------
 
@@ -13,7 +14,8 @@ const opts = {
 	publicDir: '/public',
 	port: 8080,
 
-	cursorsMaxLength: 1000
+	cursorsMaxLength: 1000,
+	cursorsFilename: 'cursors.json'
 };
 const staticPath = path.join(__dirname, opts.publicDir);
 
@@ -32,8 +34,12 @@ server.listen(opts.port, function(){
 // -------------------------------------------------------------------------
 
 (function initSocket(){
-	let cursors = {};
+	const cursorsFile = path.join(__dirname, opts.cursorsFilename);
+	let cursors = getCursorsFromFile(cursorsFile);
+
 	let pageID = '/views/index.html';
+
+	// -------------------------------------------------------------------------
 
 	io.on('connection', function (socket) {
 		let cursor = {
@@ -87,7 +93,23 @@ server.listen(opts.port, function(){
 				}else break;
 			}
 
+			writeCursorsFile(cursorsFile, cursors);
 		});
 	});
+
+
+	// -------------------------------------------------------------------------
+
+	function writeCursorsFile(filename, _cursors){
+		jsonfile.writeFile(filename, _cursors, {spaces: 2});
+	}
+
+	function getCursorsFromFile(filename){
+		console.log(filename);
+		if(fs.existsSync(filename)){
+			console.log("cursors file found");
+			return jsonfile.readFileSync(filename);
+		}else return {};
+	}
 
 })();
