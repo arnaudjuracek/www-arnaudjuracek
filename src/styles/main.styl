@@ -125,7 +125,7 @@ a:hover, a.hover
 				font_size(8)
 				font-weight bold
 			aside
-				margin-top .3em
+				margin-top .2em
 				font_size(6)
 		p
 			margin-bottom .4em
@@ -136,7 +136,6 @@ a:hover, a.hover
 			max-width 600px
 			line-height 1.3em
 			font-size 20px
-			margin-bottom 8vw
 			p
 				margin-bottom 1em
 				line-height inherit
@@ -150,7 +149,6 @@ a:hover, a.hover
 				content attr(data-meta)
 				margin-top 1em
 		.gallery
-			margin 0 -50px
 			&.gallery-columns-2{column-count:2;}
 			&.gallery-columns-3{column-count:3;}
 			&.gallery-columns-4{column-count:4;}
@@ -158,18 +156,25 @@ a:hover, a.hover
 				&.gallery-columns-2,
 				&.gallery-columns-3,
 				&.gallery-columns-4{column-count:1;}
-			column-gap 50px
+			column-gap 25px
 			line-height 0
+			width 100%
+			max-width 800px
+			margin 0 auto
+			font_size(8)
+			margin-top 1em
 			img
 				display block
-				margin-bottom 50px
+				padding-bottom 25px // padding instead of margin to avoid weird column glitch
 				width 100%
 				height auto
+				&:first-child
+					column-span all
 				&:last-child
 					margin-bottom 0
 			.iframe-ratio
-				margin-bottom 50px
 				position relative
+				margin-bottom 25px
 				width 100%
 				height 0
 				padding-bottom 51%
