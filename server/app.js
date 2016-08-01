@@ -105,11 +105,8 @@ server.listen(opts.port, function(){
 	}
 
 	function getCursorsFromFile(filename){
-		console.log(filename);
-		if(fs.existsSync(filename)){
-			console.log("cursors file found");
-			return jsonfile.readFileSync(filename);
-		}else return {};
+		if(fs.existsSync(filename)) return jsonfile.readFileSync(filename);
+		else return {};
 	}
 
 })();
