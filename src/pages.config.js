@@ -45,12 +45,12 @@ let pages = {
 					let view = yaml.safeLoad(file);
 
 					let page = makePage(view);
-					pages['views/' + basename + '.html'] = page.view;
-					pages[basename + '.html'] = page.full;
-
-					let link = makeLink(basename, page.view);
-					if(link) links.push(link);
-
+					if(!page.view.data.view.hide){
+						pages['views/' + basename + '.html'] = page.view;
+						pages[basename + '.html'] = page.full;
+						let link = makeLink(basename, page.view);
+						if(link) links.push(link);
+					}
 				}catch(e){
 					console.log(e);
 				}
