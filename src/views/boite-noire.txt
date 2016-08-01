@@ -1,0 +1,30 @@
+---
+template: project
+
+title: boîte noire
+date: 2016-03-01
+context: "Boulle&nbsp;&ndash;&nbsp;mémoire"
+license: "[CC BY-NC-SA 4.0]"
+credits:
+  "sous la direction de":
+    - Vaïana Le Coustumer
+    - Bertrand Vieillard
+    - Vincent Rossin
+  "liens":
+    - <a href="https://github.com/arnaudjuracek/boulle-memoire">github/boulle-memoire</a>
+    - <a href="http://file.arnaudjuracek.fr/arnaudjuracek_boite-noire.pdf">arnaudjuracek_boite-noire.pdf</a>
+
+content: |
+  <p>Qu’est-ce qu’un algorithme ?</p>
+  <p>
+  	Pour beaucoup, il s’agit d’un concept mathématique, une sorte d’équation, une abstraction permettant le calcul et la prédiction.<br/>
+  	D’autres y voient une entité informatique et numérique, un outil complexe utilisé par Facebook ou Google pour traquer nos comportements sur le web.
+  </p>
+  <p>Dans une société où l’algorithme se veut omniprésent et régent, il convient d’ouvrir la boîte noire dans laquelle il se tapit, et d’apprendre à le comprendre pour pouvoir l’appréhender dans toute sa complexité.</p>
+  <p>Mais s’il semble <i>a priori</i> un objet instructionnel, rationnel, au service de la rigueur technique, est-il pour autant contradictoire de le concevoir sur un plan esthétique et sensible ?</p>
+
+images:
+  - assets/projects/boite-noire/00.png
+  - assets/projects/boite-noire/01.png
+  - assets/projects/boite-noire/02.png
+  - assets/projects/boite-noire/07.png

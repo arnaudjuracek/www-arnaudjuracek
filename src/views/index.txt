@@ -1,9 +1,9 @@
 ---
 content: |
   <p>
-  Hello,<br/>
-  my name is <a href="#">Arnaud Juracek</a> and I'm a french design student.
+  Bonjour,<br/>
+  je m'appelle <a href="http://hello.arnaudjuracek.fr/">Arnaud Juracek</a> et je suis designer interactif.
   </p>
-  <p>I design &amp; build real things, virtual things, sometimes both at the same time.</p>
-  <p>You can follow me on <a href="#">twitter</a>, check out my stuff on <a href="#">github</a> or simply <a href="#">mail</a> me.</p>
-  <p>I'm currently looking for an internship btw.</p>
+  <p>Diplômé d'<a href="http://www.ecole-estienne.paris/fr">Estienne</a> &amp; <a href="http://www.ecole-boulle.org/">Boulle</a>, je conçois et fabrique des dispositifs réels &amp; virtuels, parfois les deux en même temps.</p>
+  <p>Vous pouvez me suivre sur <a href="https://twitter.com/arnaudjuracek">twitter</a> et <a href="https://github.com/arnaudjuracek/">github</a>, ou me contacter par <a href="mailto:arnaud.juracek+hello@gmail.com">mail</a>.</p>
+  <p>Sinon, je suis actuellement à la recherche d'un stage.</p>
