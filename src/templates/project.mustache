@@ -2,15 +2,7 @@
 	<header>
 		<h1>{{view.title}}</h1>
 		<aside>
-			{{#view.date}}
-				<time>{{view.date.year}}</time>
-			{{/view.date}}
-			{{#view.context}}
-				{{#view.date}}
-					&nbsp;&mdash;&nbsp;
-				{{/view.date}}
-				{{view.context}}
-			{{/view.context}}
+			{{#view.date}}<time>{{view.date.year}}</time>{{/view.date}}{{#view.context}}{{#view.date}},&nbsp;{{/view.date}}{{{view.context}}}{{/view.context}}
 		</aside>
 	</header>
 {{/view.title}}
