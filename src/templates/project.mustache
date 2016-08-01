@@ -43,19 +43,21 @@
 {{/view.images}}
 
 <footer>
-	{{#view.peoples}}
-		<div>
-			<ul>
-			{{#items}}
-				<li>{{{item}}}</li>
-			{{/items}}
-			</ul>
-		</div>
-	{{/view.peoples}}
+	{{#view.credits}}
+		<ul class="credits">
+			{{#view.credits.categories}}
+				<ul data-meta="{{category.name}}">
+					{{#category.items}}
+						<li>{{{item}}}</li>
+					{{/category.items}}
+				</ul>
+			{{/view.credits.categories}}
+		</ul>
+	{{/view.credits}}
 
 	{{#view.license}}
-		<div>
-			{{{view.license}}}
+		<div data-meta="license">
+			<p>{{{view.license}}}</p>
 		</div>
 	{{/view.license}}
 </footer>

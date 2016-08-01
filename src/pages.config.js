@@ -90,19 +90,36 @@ let pages = {
 		(function assignYAMLKeys(){
 			for(let key in view){
 				let value = view[key];
-				(function formatDataMustacheArrays(){
-					if(Array.isArray(value)){
-						let items = [];
-						for(let i in value){
-							items.push( {item:value[i]} );
+				(function formatYAMLMustache(){
+					if(value !== null){
+						if(Array.isArray(value)){
+							let items = [];
+							for(let i in value){
+								items.push( {item:value[i]} );
+							}
+							value = {items: items};
 						}
-						value = {items: items};
+
+						else if( typeof value === 'object' && !(value instanceof Date) ){
+							let categories = [];
+							for(let categoryKey in value){
+								let category = {
+									name: categoryKey,
+									items: []
+								};
+
+								for(let i in value[categoryKey])category.items.push( {item:value[categoryKey][i]} );
+								categories.push({category:category});
+							}
+
+							value = {categories:categories};
+						}
 					}
 				})();
+
 				page.data.view[key] = value;
 			}
 		})();
-		// console.log(page.data.view.images);
 
 		(function parseDate(){
 			if(page.data.view.date){

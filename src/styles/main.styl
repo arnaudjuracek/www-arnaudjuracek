@@ -139,8 +139,12 @@ a:hover, a.hover
 		footer
 			text-align right
 			margin-top 1em
-			div:not(:last-child)
-				margin-bottom 1em
+			[data-meta]::before
+				display block
+				position relative
+				font-size smaller
+				content attr(data-meta)
+				margin-top 1em
 		.gallery
 			&.gallery-columns-2{column-count:2;}
 			&.gallery-columns-3{column-count:3;}
