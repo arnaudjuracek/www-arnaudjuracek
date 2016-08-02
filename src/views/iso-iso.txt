@@ -1,0 +1,28 @@
+---
+template: project
+
+title: iso_iso
+date: 2013-01
+context: Estienne
+license:
+credits:
+  "workshop":
+    - <a href="https://twitter.com/jm_geridan">Jean-Michel Géridan</a>
+  "en partenariat avec":
+    - Antoine Puel
+    - Léo Ternoir
+    - Hugo Piquemal
+    - Thibault Terray
+  "crédits vidéo":
+    - Emel Proust
+    - Antoine Puel
+
+content: |
+  <p>iso_iso est une expérience interactive associant les principes du support papier et numérique du livre.</p>
+  <p>Il sʼagit dʼun voyage à travers les mots, le seul but étant de se laisser guider par son instinct pour naviguer à travers des associations de sens et de significations.<br/>
+  <p>Le livre papier agit comme contrôleur du livre numérique.</p>
+  <p>iso_iso a été exposé au <a href="http://www.labodeledition.com/">Labo de LʼÉdition</a> en janvier 2013.</p>
+
+# vimeo: 60974948
+videos:
+  - {url: "assets/projects/iso_iso/video-HD.mp4", poster: "assets/projects/iso_iso/poster.png"}
