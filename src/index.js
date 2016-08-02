@@ -9,18 +9,6 @@ if(!isMobile){
 	const cm = cursorsManager();
 	cm.initSyncBrowsing(views);
 
-	(function initBlazy(){
-		const blazy = new Blazy({
-			selector: '.blazy',
-			successClass : 'blazy-loaded',
-			errorClass : 'blazy-failed'
-		});
-
-		views.onLoad(function(){
-			blazy.revalidate();
-		});
-	})();
-
 	(function avoidFOUC(){
 		window.addEventListener('load', function(){
 			enableEasing();
@@ -45,3 +33,17 @@ if(!isMobile){
 
 	})();
 }
+
+(function initBlazy(){
+	const blazy = new Blazy({
+		selector: '.blazy',
+		successClass : 'blazy-loaded',
+		errorClass : 'blazy-failed'
+	});
+
+	if(views){
+		views.onLoad(function(){
+			blazy.revalidate();
+		});
+	}
+})();
