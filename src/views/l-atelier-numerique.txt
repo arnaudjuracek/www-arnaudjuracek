@@ -1,0 +1,29 @@
+---
+template: project
+
+title: l'atelier numérique
+date: 2015-01-01
+context: Boulle
+license:
+credits:
+  "initié par":
+    - Vincent Rossin
+    - Ferdinand Barbier
+    - <a href="http://www.thomas-thibault.fr/">Thomas Thibaut</a>
+  "remerciements":
+    - école Boulle
+    - Fabernovel
+    - le FabShop
+    - collectif BAM
+  "crédits vidéo":
+    - Morgane Chevalier
+    - Thomas Thibault
+
+content: |
+  <p>LʼAtelier Numérique est une initiative lancée et gérée par les étudiants de lʼécole Boulle.</p>
+  <p>Soutenu par lʼécole, il a pour objectif dʼouvrir la création au numérique (programmation, électronique, design dʼinteraction, fabrication numérique).</p>
+  <p>Il prend forme à travers une plateforme de partage de savoir ainsi quʼun espace dans lʼécole, inspiré du mouvement des fablabs, dans lequel les étudiants &amp; professeurs sont invités à créer et à expérimenter.</p>
+
+# vimeo: 132451639
+videos:
+  - {url: "assets/projects/l-atelier-numerique/l-atelier-numerique-HD.mp4", poster: "assets/projects/l-atelier-numerique/poster.png"}
