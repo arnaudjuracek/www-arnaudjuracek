@@ -1,0 +1,24 @@
+---
+template: project
+
+title: edo pattern maker
+date: 2014-10-01
+context: Tokyo
+license:
+credits:
+  "en partenariat avec":
+    - Kæde Yamamoto
+    - Henna Burney
+    - Charlotte Lossec
+    - Tom Hebrard
+
+content: |
+  <p>Prototype d'installation interactive permettant aux visiteurs de créer dynamiquement des motifs inspirés de lʼépoque Edo à partir de dessins faits à main levée.</p>
+  <p>Réalisé dans le cadre dʼun workshop organisé à Tokyo par la <a href="http://www.zokei.ac.jp/worldwide/en/">Zokei University</a>.</p>
+
+
+images:
+  - assets/projects/edo-pattern-maker/08.png
+  - assets/projects/edo-pattern-maker/09.png
+  - assets/projects/edo-pattern-maker/10.png
+images-columns: 2
