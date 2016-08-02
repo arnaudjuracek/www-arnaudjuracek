@@ -139,6 +139,9 @@ a:hover, a.hover
 			p
 				margin-bottom 1em
 				line-height inherit
+		.description+.gallery
+			font_size(8)
+			margin-top 1em
 		footer
 			text-align right
 			margin-top 1em
@@ -161,8 +164,9 @@ a:hover, a.hover
 			width 100%
 			max-width 800px
 			margin 0 auto
-			font_size(8)
-			margin-top 1em
+			+media(mobile)
+				margin 0 -50px
+				width auto
 			img
 				display block
 				padding-bottom 25px // padding instead of margin to avoid weird column glitch
@@ -177,7 +181,7 @@ a:hover, a.hover
 				margin-bottom 25px
 				width 100%
 				height 0
-				padding-bottom 51%
+				padding-bottom 56.5%
 				iframe
 					position: absolute
 					width: 100%
