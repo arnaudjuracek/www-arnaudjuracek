@@ -21,6 +21,19 @@
 	</div>
 {{/view.vimeo}}
 
+{{#view.videos}}
+	<div class="gallery">
+		{{#items}}
+		<div class="iframe-ratio {{{item.ratio}}}">
+			<video class="blazy" controls preload="auto" poster="{{item.poster}}">
+        		<source data-src="{{item.url}}" type="video/mp4">
+        		Your browser doesn't support HTML5 video tag.
+    		</video>
+		</div>
+		{{/items}}
+	</div>
+{{/view.videos}}
+
 
 {{#view.images}}
 	<div class="gallery {{#view.images-columns}}gallery-columns-{{view.images-columns}}{{/view.images-columns}}" data-columns="2">
