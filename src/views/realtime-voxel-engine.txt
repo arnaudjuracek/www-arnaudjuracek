@@ -1,0 +1,20 @@
+---
+template: project
+
+title: voxel engine
+date: 2016-02-01
+context: processing
+license: "GNU GENERAL PUBLIC LICENSE Version 2, June 1991"
+credits:
+  "ressources":
+    - <a href="http://vacuumflowers.com/weblog/?p=347">vacuumflowers.com</a>
+    - <a href="http://www.flipcode.com/archives/Realtime_Voxel_Landscape_Engines-Part_1_Introduction.shtml">flipcode.com</a>
+    - <a href="http://simulationcorner.net/index.php?page=comanche">simulationcorner.net</a>
+  "liens":
+    - <a href="https://github.com/arnaudjuracek/processing-voxel_engine">github/processing-voxel_engine</a>
+
+content: |
+  <p>Développement pour <a href="https://processing.org/">Processing</a> d'un moteur de rendu de terrains de jeux-vidéos rétros, basé sur une technique combinant <i>raycasting</i> et <i>heightmaps</i>.</p>
+
+images:
+  - assets/projects/realtime-voxel-engine/preview.gif
