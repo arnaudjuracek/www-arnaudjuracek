@@ -1,0 +1,23 @@
+---
+template: project
+hide: true
+
+title: terragen
+date: 2014-12-01
+context: processing
+license: "GNU Version 2"
+credits:
+  "lien":
+    - github/processing-terragen
+
+content: |
+  <p>Génération procédurale de paysages en voxels sur <a href="http://processing.org">Processing</a>.</p>
+  <p>La génération est basée sur une succession de cartes en deux dimensions gérant le relief, la végétation, les formations rocheuses, le niveau de la mer ainsi que la température ambiante en fonction de lʼaltitude.</p>
+  <p>Phase initiale dʼun projet visant à l'étude des techniques de générations procédurale, <i>Terragen</i> offre la possibilité de générer une infinité de terrains, et intègre pour se faire un analyseur syntaxique permettant de manipuler facilement les paramètres de chaque biome.</p>
+
+images:
+  - assets/projects/terragen/1.png
+  - assets/projects/terragen/2.png
+  - assets/projects/terragen/3.png
+  - assets/projects/terragen/4.png
+  - assets/projects/terragen/infos.png
