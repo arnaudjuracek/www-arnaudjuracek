@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const im = require('imagemagick');
 const maxworkers = require('os').cpus().length;
 const path = require('path');
+const sh = require('./Shell');
 
 
 module.exports = resize;
@@ -31,8 +32,12 @@ function resizeimg(params, cb){
 				width:   params.width,
 				quality: params.quality
 			}, function(err, stdout, stderr){
-				if(err) console.log(stderr);
-				else if(params.deleteAfterResize) fs.unlinkSync(params.input);
+				if(err) sh.error(stderr);
+				else if(params.deleteAfterResize){
+					fs.unlinkSync(params.input);
+					sh.error(params.input);
+				}
+				else sh.success(params.output);
 			});
 		}
 	});
