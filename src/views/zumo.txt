@@ -1,0 +1,38 @@
+---
+template: project
+
+title: "boîte noire"
+date: 2015-09-01
+context: Louis Eveillard
+license:
+credits:
+  "en stage avec":
+    - <a href="http://louiseveillard.com/">Louis Eveillard</a>
+  "remerciements":
+    - Maxime Fittes
+    - Vincent Desclaux
+    - et toute l'équipe de Chevalvert
+  "ressources":
+    - <a href="https://www.pololu.com/product/2506">arduino zumo</a>
+    - <a href="http://piccolo.cc/">piccolo.cc</a>
+  "liens":
+    - <a href="http://boitenoire.io/">boitenoire.io</a>
+    - <a href="https://github.com/arnaudjuracek/arduino-zumo">github/arduino-zumo</a>
+
+content: |
+  <p>Inspiré des travaux de Seymour Papert, <i>boîte noire</i> est une série d'expérimentations graphiques à partir de machines à dessiner.</p>
+  <p>Mené en stage sous la direction de Louis Eveillard, le projet mêle fabrication de machines à dessiner, développement de programmes permettant la visualisation du lien entre <i>input</i> &amp; <i>output</i>, ainsi que recherches graphiques à partir de ces outils.</p>
+  <p>Un journal de recherche du projet est disponible sur <a href="http://boitenoire.io">boitenoire.io</a>.</p>
+
+# vimeo: 140336787
+videos:
+  - {url: "assets/projects/zumo/zumo-HD.mp4", poster: "assets/projects/zumo/poster.png"}
+images:
+  - assets/projects/zumo/_1030265-4.jpg
+  - assets/projects/zumo/_1030216-3.jpg
+  - assets/projects/zumo/_1030229-1.jpg
+  - assets/projects/zumo/_1030299-3-edited.jpg
+  - assets/projects/zumo/_1030234-4-c77b77110deaceabbd9abb5806f4b8e7.jpg
+  - assets/projects/zumo/_1030202-5.jpg
+  - assets/projects/zumo/_1030333-14.jpg
+images-columns: 2
