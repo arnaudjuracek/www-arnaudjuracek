@@ -57,17 +57,28 @@ a:hover, a.hover
 			display none
 		+media(mobile)
 			header
+				z-index 9
 				position fixed
-				top 50px
-				left 25px
+				top 0
+				left 0
+				right 0
+				padding-top 50px
+				padding-left 25px
 				& a
 					margin-left 0
 			ul
 				position fixed
-				top 50px
-				right 25px
-				margin-top 2em
+				top 0
+				right 0
+				bottom 0
+				left 0
+				padding-top calc(50px+3em)
 				text-align right
+				background rgba(255, 255, 255, .95)
+				li
+					margin-right 25px
+					& a, & a::before
+						background transparent!important
 
 			input.hamburger
 				&~ul
@@ -79,6 +90,7 @@ a:hover, a.hover
 			label[for="hamburger"]
 				easing(100)
 				position fixed
+				z-index 99
 				right 25px
 				display block
 				width 1.4em
