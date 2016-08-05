@@ -43,7 +43,7 @@ function cursorsManager(_opts){
 	}, 300);
 	window.addEventListener('resize', onResize);
 
-	let stage, engine, renderer, textures, socket;
+	let stage, engine, canvas, renderer, textures, socket;
 	let worldBoundaries = [];
 	let elements = document.querySelectorAll(opts.eventForwarding.hoverableElementsSelector);
 	let cursors = {};
@@ -76,16 +76,26 @@ function cursorsManager(_opts){
 
 
 	(function initRenderer(){
+		const pixelDensity = window.devicePixelRatio;
+
+		canvas = window.document.createElement('canvas');
+		canvas.style.width = windowWidth + 'px';
+		canvas.style.height = windowHeight + 'px';
+		opts.elem.appendChild(canvas);
+
+
 		renderer = PIXI.autoDetectRenderer(
 			windowWidth,
 			windowHeight,
 			{
 				transparent: true,
+				view: canvas,
+				resolution: pixelDensity
 			}
 		);
 
 		stage = new PIXI.Container();
-		if(window.devicePixelRatio === 2){
+		if(pixelDensity === 2){
 			textures = {
 				osx:{
 					default: PIXI.Texture.fromImage('assets/images/cursors/default@2x.png'),
@@ -109,12 +119,15 @@ function cursorsManager(_opts){
 			};
 		}
 
-		opts.elem.appendChild(renderer.view);
 	})();
 
 
 	function updateRendererSize(w, h){
-		renderer.resize(w, h);
+		canvas.width = w;
+    	canvas.height = h;
+    	canvas.style.width = w + 'px';
+    	canvas.style.height = h + 'px';
+		renderer.resize(canvas.width, canvas.height);
 	}
 
 
