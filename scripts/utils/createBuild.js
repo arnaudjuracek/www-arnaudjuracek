@@ -42,8 +42,8 @@ function createBuild(options = {}) {
 		const imageDirectory = path.join(output, 'assets/projects/');
 		const sizes = {
 			large: 1600,
-			// medium: 1280,
-			// small: 640
+			medium: 1280,
+			small: 640
 		}
 
 		walk.filesSync(imageDirectory, function(basedir, filename, stat, next){
