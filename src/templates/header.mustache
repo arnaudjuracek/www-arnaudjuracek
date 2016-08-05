@@ -1,0 +1,56 @@
+	<meta charset="UTF-8">
+
+	<title>{{{meta.title}}}</title>
+
+	<meta name="description" content="{{meta.description}}">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+
+	<base href="./">
+	{{#compiler.isProduction}}
+	<link rel="stylesheet" href="bundle-{{compiler.hash}}.css">
+	{{/compiler.isProduction}}
+
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png?v=m2d2665p9O">
+	<link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png?v=m2d2665p9O" sizes="32x32">
+	<link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png?v=m2d2665p9O" sizes="16x16">
+	<link rel="manifest" href="assets/favicon/manifest.json?v=m2d2665p9O">
+	<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg?v=m2d2665p9O" color="#5bbad5">
+	<link rel="shortcut icon" href="assets/favicon/favicon.ico?v=m2d2665p9O">
+
+	<meta http-equiv="cleartype" content="on">
+	<meta name="apple-mobile-web-app-title" content="{{meta.title}}">
+	<meta name="application-name" content="{{meta.title}}">
+	<meta name="application-name" content="{{meta.title}}">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="google" content="nositelinkssearchbox">
+	<meta name="google" content="notranslate">
+	<meta name="googlebot" content="index,follow">
+	<meta name="msapplication-config" content="assets/favicon/browserconfig.xml?v=m2d2665p9O">
+	<meta name="msapplication-starturl" content="/">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-TileColor" content="#2a2a2f">
+	<meta name="msapplication-window" content="width=1024;height=768">
+	<meta name="robots" content="index,follow,noodp">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="me" href="https://twitter.com/arnaudjuracek" type="text/html">
+	<link rel="me" href="mailto:arnaud.juracek@gmail.com">
+	<link rel="me" href="sms:+33629697661">
+
+	<link rel="index" href="http://arnaudjuracek.fr" title="{{{title}}}">
+
+	<meta property="og:url" content="http://arnaudjuracek.fr">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="{{meta.title}}">
+	<meta property="og:image" content="http://arnaudjuracek.com/assets/images/cover.png">
+	<meta property="og:description" content="{{meta.description}}">
+	<meta property="og:site_name" content="{{meta.title}}">
+	<meta property="og:locale" content="fr_FR">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@arnaudjuracek">
+	<meta name="twitter:creator" content="@arnaudjuracek">
+	<meta name="twitter:url" content="http://arnaudjuracek.fr">
+	<meta name="twitter:title" content="{{meta.title}}">
+	<meta name="twitter:description" content="{{meta.description}}">
+	<meta name="twitter:image" content="http://arnaudjuracek.fr/assets/images/cover.png">

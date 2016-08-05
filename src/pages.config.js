@@ -19,7 +19,7 @@ let pages = {
 			links: [],
 			meta: {
 				title: 'Arnaud Juracek',
-				description: 'portfolio',
+				description: 'Portfolio d\'Arnaud Juracek, designer interactif à Paris.',
 				pageID: 'home'
 			}
 		}

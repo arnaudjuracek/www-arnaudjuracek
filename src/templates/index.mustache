@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>{{{meta.title}}}</title>
-	<meta name="description" content="{{meta.description}}">
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
-	<base href="./">
-	{{#compiler.isProduction}}
-	<link rel="stylesheet" href="bundle-{{compiler.hash}}.css">
-	{{/compiler.isProduction}}
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png?v=m2d2665p9O">
-	<link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png?v=m2d2665p9O" sizes="32x32">
-	<link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png?v=m2d2665p9O" sizes="16x16">
-	<link rel="manifest" href="assets/favicon/manifest.json?v=m2d2665p9O">
-	<link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg?v=m2d2665p9O" color="#5bbad5">
-	<link rel="shortcut icon" href="assets/favicon/favicon.ico?v=m2d2665p9O">
-	<meta name="apple-mobile-web-app-title" content="Arnaud Juracek">
-	<meta name="application-name" content="Arnaud Juracek">
-	<meta name="msapplication-config" content="assets/favicon/browserconfig.xml?v=m2d2665p9O">
-	<meta name="theme-color" content="#ffffff">
+	{{> header.mustache}}
 </head>
 <body class=""><script>document.body.classList.add("preload");</script>
 	<main id="page" class="page {{meta.pageID}}">
