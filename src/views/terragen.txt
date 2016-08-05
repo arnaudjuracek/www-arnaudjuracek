@@ -1,14 +1,14 @@
 ---
 template: project
-hide: true
+# hide: true
 
 title: terragen
-date: 2014-12-01
+date: 2013-12-01
 context: processing
 license: "GNU Version 2"
 credits:
-  "lien":
-    - github/processing-terragen
+  # "lien":
+    # - github/processing-terragen
 
 content: |
   <p>Génération procédurale de paysages en voxels sur <a href="http://processing.org">Processing</a>.</p>

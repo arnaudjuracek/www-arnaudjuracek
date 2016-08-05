@@ -4,7 +4,7 @@ template: project
 title: "boîte noire"
 date: 2015-09-01
 context: Louis Eveillard
-license:
+license: "[CC BY-NC-SA 4.0]"
 credits:
   "en stage avec":
     - <a href="http://louiseveillard.com/">Louis Eveillard</a>
