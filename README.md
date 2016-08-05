@@ -7,6 +7,9 @@ www-arnaudjuracek
 Build with brocessing's [bro-start](https://github.com/brocessing/bro-start/)
 
 ### Installation
+
+Install [ImageMagick](https://github.com/ImageMagick/ImageMagick), then :
+
 ```bash
 ssh remote_username@remote_host
 mkdir /www/www-arnaudjuracek && cd /ww/www-arnaudjuracek
