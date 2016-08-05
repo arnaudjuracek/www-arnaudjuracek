@@ -44,7 +44,7 @@ let pages = {
 					let file = fs.readFileSync(dirname + filename, 'utf8');
 					let view = yaml.safeLoad(file);
 
-					let page = makePage(view);
+					let page = makePage(basename, view);
 					if(!page.view.data.view.hide){
 						pages['views/' + basename + '.html'] = page.view;
 						pages[basename + '.html'] = page.full;
@@ -74,14 +74,14 @@ let pages = {
 		}
 	})();
 
-	function makePage(view){
+	function makePage(basename, view){
 		let page = {
 			template: view.template + ".mustache",
 			data: {
 				meta: {
 					title: 'Arnaud Juracek',
 					description: 'portfolio',
-					pageID: view.template
+					pageID: basename
 				},
 				view : {}
 			}
