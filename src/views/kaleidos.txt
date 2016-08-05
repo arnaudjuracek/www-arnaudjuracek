@@ -1,0 +1,21 @@
+---
+template: project
+hide: true
+
+title: kaleidos
+date: 2015-10-01
+context: "2016"
+credits:
+  "kaleidos mapping":
+    - Paul Appert
+    - Tom Hebrard
+    - Paul Vivien
+  "liens":
+    - <a href="http://kaleidosmapping.fr/">kaleidos</a>
+    - <a href="https://github.com/arnaudjuracek/processing-kaleidos_coy11">github/coy11</a>
+    - <a href="https://github.com/arnaudjuracek/processing-midiblob">github/midiblob</a>
+
+content: |
+  <p>Conception et développement d'application et d'installations interactives pour le collectif de vidéomapping Kaleidos.</p>
+
+images:

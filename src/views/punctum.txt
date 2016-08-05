@@ -1,0 +1,23 @@
+---
+template: project
+
+
+title: punctum
+date: 2014-10-01
+context: Tokyo
+license: MIT
+
+content: |
+  <p>Le <i>punctum</i>, cʼest la <b>petitesse</b> du point, lʼéphémérité de lʼinstant. Chez Barthes, cʼest le détail poignant dʼune épreuve photographique.</p>
+  <p>Ici, Punctum est une série photographique éditée dans un livre de 30*30cm.</p>
+  <p>Les clichés sont réalisés durant deux semaines de déambulations Tokyoïtes au moyen dʼune caméra espion fixée à un sac à dos, et programmée pour sʼenclencher chaque fois quʼelle reconnaît un visage.</p>
+  <p>Le détail poignant nʼexiste plus, si ce nʼest par sa plasticité.</p>
+
+images:
+  - assets/projects/punctum/11.jpg
+  - assets/projects/punctum/118.jpg
+  - assets/projects/punctum/129.jpg
+  - assets/projects/punctum/18.jpg
+  - assets/projects/punctum/86.jpg
+
+images-columns: 2
