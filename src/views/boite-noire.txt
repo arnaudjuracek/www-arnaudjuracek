@@ -24,7 +24,7 @@ content: |
   <p>Mais s’il semble <i>a priori</i> un objet instructionnel, rationnel, au service de la rigueur technique, est-il pour autant contradictoire de le concevoir sur un plan esthétique et sensible ?</p>
 
 images:
-  - assets/projects/boite-noire/00.png
-  - assets/projects/boite-noire/01.png
-  - assets/projects/boite-noire/02.png
-  - assets/projects/boite-noire/07.png
+  - 00.png
+  - 01.png
+  - 02.png
+  - 07.png

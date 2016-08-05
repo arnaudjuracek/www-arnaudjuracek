@@ -18,7 +18,7 @@ content: |
 
 
 images:
-  - assets/projects/edo-pattern-maker/08.png
-  - assets/projects/edo-pattern-maker/09.png
-  - assets/projects/edo-pattern-maker/10.png
+  - 08.png
+  - 09.png
+  - 10.png
 images-columns: 2

@@ -16,8 +16,8 @@ content: |
   <p>Phase initiale dʼun projet visant à l'étude des techniques de générations procédurale, <i>Terragen</i> offre la possibilité de générer une infinité de terrains, et intègre pour se faire un analyseur syntaxique permettant de manipuler facilement les paramètres de chaque biome.</p>
 
 images:
-  - assets/projects/terragen/1.png
-  - assets/projects/terragen/2.png
-  - assets/projects/terragen/3.png
-  - assets/projects/terragen/4.png
-  - assets/projects/terragen/infos.png
+  - 1.png
+  - 2.png
+  - 3.png
+  - 4.png
+  - infos.png

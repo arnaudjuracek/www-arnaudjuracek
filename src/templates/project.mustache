@@ -25,8 +25,8 @@
 	<div class="gallery">
 		{{#items}}
 		<div class="iframe-ratio {{{item.ratio}}} video">
-			<video class="" controls preload="auto" poster="{{item.poster}}">
-				<source src="{{item.url}}" type="video/mp4">
+			<video class="" controls preload="auto" poster="assets/projects/{{meta.pageID}}/large/{{item.poster}}">
+				<source src="assets/projects/{{meta.pageID}}/{{item.url}}" type="video/mp4">
 				Your browser doesn't support HTML5 video tag.
 			</video>
 			<div class="video-controllers" style="display:none">
@@ -38,7 +38,7 @@
 					width="100%"
 					height="100%"
 					viewBox="0 0 800 450"
-	 				xml:space="preserve">
+					xml:space="preserve">
 					<polygon
 						class='triangle'
 						id="XMLID_18_"
@@ -62,11 +62,22 @@
 {{#view.images}}
 	<div class="gallery {{#view.images-columns}}gallery-columns-{{view.images-columns}}{{/view.images-columns}}" data-columns="2">
 		{{#items}}
-			<img class="blazy"
-				src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-				data-src="{{item}}"
-			/>
-			<noscript><img src="{{item}}"></noscript>
+			{{#compiler.isProduction}}
+				<img class="blazy"
+					src="assets/projects/{{meta.pageID}}/low/{{item}}"
+					sizes="100vw"
+					data-srcset="assets/projects/{{meta.pageID}}/large/{{item}} 1024w, assets/projects/{{meta.pageID}}/medium/{{item}} 640w, assets/projects/{{meta.pageID}}/small/{{item}} 320w"
+					data-src="assets/projects/{{meta.pageID}}/large/{{item}}"
+				/>
+				<noscript><img src="{{item}}"></noscript>
+			{{/compiler.isProduction}}
+			{{^compiler.isProduction}}
+				<img class="blazy"
+					src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+					data-src="assets/projects/{{meta.pageID}}/{{item}}"
+				/>
+				<noscript><img src="{{item}}"></noscript>
+			{{/compiler.isProduction}}
 		{{/items}}
 	</div>
 {{/view.images}}

@@ -26,4 +26,4 @@ content: |
 
 # vimeo: 132451639
 videos:
-  - {url: "assets/projects/l-atelier-numerique/l-atelier-numerique-HD.mp4", poster: "assets/projects/l-atelier-numerique/poster.png"}
+  - {url: "l-atelier-numerique-HD.mp4", poster: "poster.png"}

@@ -28,8 +28,8 @@ content: |
   <p>La relation homme-algorithme devient une symbiose à la fois computationnelle et sensible.</p>
 
 images:
-  - assets/projects/supershapes/fluryba.jpg
-  - assets/projects/supershapes/flufahe.jpg
-  - assets/projects/supershapes/kycigy.jpg
-  - assets/projects/supershapes/chedeflu.jpg
+  - fluryba.jpg
+  - flufahe.jpg
+  - kycigy.jpg
+  - chedeflu.jpg
 images-columns: 3

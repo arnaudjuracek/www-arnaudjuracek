@@ -14,10 +14,9 @@ content: |
   <p>Le détail poignant nʼexiste plus, si ce nʼest par sa plasticité.</p>
 
 images:
-  - assets/projects/punctum/11.jpg
-  - assets/projects/punctum/118.jpg
-  - assets/projects/punctum/129.jpg
-  - assets/projects/punctum/18.jpg
-  - assets/projects/punctum/86.jpg
-
+  - 11.jpg
+  - 118.jpg
+  - 129.jpg
+  - 18.jpg
+  - 86.jpg
 images-columns: 2

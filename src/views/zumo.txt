@@ -26,13 +26,13 @@ content: |
 
 # vimeo: 140336787
 videos:
-  - {url: "assets/projects/zumo/zumo-HD.mp4", poster: "assets/projects/zumo/poster.png"}
+  - {url: "zumo-HD.mp4", poster: "poster.png"}
 images:
-  - assets/projects/zumo/_1030265-4.jpg
-  - assets/projects/zumo/_1030216-3.jpg
-  - assets/projects/zumo/_1030229-1.jpg
-  - assets/projects/zumo/_1030299-3-edited.jpg
-  - assets/projects/zumo/_1030234-4-c77b77110deaceabbd9abb5806f4b8e7.jpg
-  - assets/projects/zumo/_1030202-5.jpg
-  - assets/projects/zumo/_1030333-14.jpg
+  - _1030265-4.jpg
+  - _1030216-3.jpg
+  - _1030229-1.jpg
+  - _1030299-3-edited.jpg
+  - _1030234-4-c77b77110deaceabbd9abb5806f4b8e7.jpg
+  - _1030202-5.jpg
+  - _1030333-14.jpg
 images-columns: 2

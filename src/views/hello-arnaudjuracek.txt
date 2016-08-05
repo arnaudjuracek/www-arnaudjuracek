@@ -11,4 +11,4 @@ credits:
     - <a href="https://github.com/arnaudjuracek/www-hello">github/hello</a>
 
 images:
-  - assets/projects/hello-arnaudjuracek/screenshot.png
+  - screenshot.png

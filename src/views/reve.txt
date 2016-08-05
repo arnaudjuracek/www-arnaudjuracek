@@ -13,4 +13,4 @@ credits:
 
 # vimeo: 55892304
 videos:
-  - {url: "assets/projects/reve/reve-SD.mp4", poster: "assets/projects/reve/poster.png", ratio: "4-3"}
+  - {url: "reve-SD.mp4", poster: "poster.png", ratio: "4-3"}

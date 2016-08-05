@@ -18,6 +18,6 @@ content: |
   <p>Développement pour <a href="https://processing.org/">Processing</a> d'un moteur de rendu de terrains de jeux-vidéos rétros, basé sur une technique combinant <i>raycasting</i> et <i>heightmaps</i>.</p>
 
 images:
-  - assets/projects/realtime-voxel-engine/preview.gif
-  - assets/projects/realtime-voxel-engine/1_texture.png
-  - assets/projects/realtime-voxel-engine/1_depth.png
+  - preview.gif
+  - 1_texture.png
+  - 1_depth.png

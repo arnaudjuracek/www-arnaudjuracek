@@ -25,4 +25,4 @@ content: |
 
 # vimeo: 60974948
 videos:
-  - {url: "assets/projects/iso_iso/video-HD.mp4", poster: "assets/projects/iso_iso/poster.png"}
+  - {url: "video-HD.mp4", poster: "poster.png"}
