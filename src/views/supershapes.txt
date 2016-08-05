@@ -1,0 +1,35 @@
+---
+template: project
+# hide: true
+
+title: supershapes
+date: 2016-06-01
+context: "Boulle, diplôme"
+license: GNU Version 3
+credits:
+  "avec la participation de":
+    - Gaëtan Moren
+  "remerciements":
+    - Vaïana Le Coustumer
+    - Vincent Rossin
+    - Dominique Robert
+    - Antoine Fermey
+  "liens":
+    - <a href="http://supershapes.arnaudjuracek.fr">supershapes.arnaudjuracek.fr</a>
+    - <a href="https://github.com/arnaudjuracek/boulle-diplome">github/boulle-diplome</a>
+
+
+content: |
+  <p>L’algorithme permet de mettre en place des systèmes chargés de résoudre des problèmes ; d’instruction en instruction, son exécution mécanique répond à l’intention qui justifie son existence.</p>
+  <p>Pourtant, la mise en réseau d’instructions fait naître des systèmes d’une complexité telle que de nouvelles propriétés émergent spontanément, échappant à l’intention première. L’algorithme devient alors créateur de nouvelles formes, de nouvelles idées.</p>
+  <p>En cela, le designer doit de se confronter à cette émergence afin de susciter de nouvelles esthétiques.</p>
+  <p>Supershapes utilise l’algorithme pour appliquer à des objets les principes génétiques de la théorie de l’évolution. Décrits en termes de gênes et d’ADN, ces objets se reproduisent numériquement entre eux, témoignent de leur descendance, de mutations génétiques, et prennent au fil des générations leur autonomie formelle.</p>
+  <p>Supershapes favorise une émergence esthétique au travers d’un système algorithmique créatif.</p>
+  <p>La relation homme-algorithme devient une symbiose à la fois computationnelle et sensible.</p>
+
+images:
+  - assets/projects/supershapes/fluryba.jpg
+  - assets/projects/supershapes/flufahe.jpg
+  - assets/projects/supershapes/kycigy.jpg
+  - assets/projects/supershapes/chedeflu.jpg
+images-columns: 3
