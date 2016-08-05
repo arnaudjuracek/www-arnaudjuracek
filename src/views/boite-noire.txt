@@ -1,9 +1,9 @@
 ---
 template: project
 
-title: boîte noire
+title: mémoire
 date: 2016-03-01
-context: "Boulle&nbsp;&ndash;&nbsp;mémoire"
+context: "Boulle"
 license: "[CC BY-NC-SA 4.0]"
 credits:
   "sous la direction de":
