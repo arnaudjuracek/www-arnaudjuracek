@@ -57,7 +57,6 @@ function cursorsManager(_opts){
 		engine.world.gravity.scale = 0;
 
 		updateEngineSize(windowWidth, windowHeight);
-		World.add(engine.world, worldBoundaries);
 		Engine.run(engine);
 	})();
 
@@ -317,7 +316,7 @@ function cursorsManager(_opts){
 			let y = Math.random() * windowHeight;
 			let id = Math.random() * 999999;
 
-			let cursor = new Cursor(id, x, y, ((Math.random()>.5)?textures.osx:textures.windows));
+			let cursor = new Cursor(id, x, y, ((Math.random()>.25)?textures.osx:textures.windows));
 			cursor.kill();
 			add(cursor);
 		}
