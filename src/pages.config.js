@@ -79,8 +79,8 @@ let pages = {
 			template: view.template + ".mustache",
 			data: {
 				meta: {
-					title: 'Arnaud Juracek',
-					description: 'portfolio',
+					title: pages['index.html'].data.meta.title,
+					description: pages['index.html'].data.meta.description,
 					pageID: basename
 				},
 				view : {}
