@@ -1,9 +1,15 @@
 html, body
 	height 100%
 	margin 0
-	.preload *, .preload *::after, .preload *::before
+	&.preload *,
+	&.preload *::after,
+	&.preload *::before,
+	&.no-js *,
+	&.no-js *::after,
+	&.no-js *::before
 		transition none !important
-
+	&.no-js .blazy
+		display none !important
 
 body
 	background white
@@ -78,7 +84,7 @@ a:hover, a.hover
 				li
 					margin-right 25px
 					& a, & a::before
-						background transparent!important
+						background transparent !important
 
 			input.hamburger
 				&~ul
@@ -208,13 +214,6 @@ a:hover, a.hover
 
 
 // -------------------------------------------------------------------------
-
-
-.blazy
-	// opacity 0
-	&.blazy-loaded
-		easing(1000)
-		// opacity 1
 
 .video-controllers
 	cursor pointer

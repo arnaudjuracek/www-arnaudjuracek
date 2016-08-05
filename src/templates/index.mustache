@@ -3,9 +3,8 @@
 <head>
 	{{> header.mustache}}
 </head>
-<body class=""><script>document.body.classList.add("preload");</script>
+<body class="no-js">
 	<main id="page" class="page {{meta.pageID}}">
-
 		<nav role="main">
 		  <input type="checkbox" class="hamburger" id="hamburger" style="display:none"/>
 		  <label for="hamburger"></label>
@@ -33,6 +32,10 @@
 
 	</main>
 	<div id='cursors'></div>
+	<script>
+		document.body.classList.add("preload");
+		document.body.classList.remove("no-js");
+	</script>
 	<script src="bundle-{{compiler.hash}}.js"></script>
 </body>
 </html>

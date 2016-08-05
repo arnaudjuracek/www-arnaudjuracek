@@ -74,14 +74,18 @@
 					data-srcset="assets/projects/{{meta.pageID}}/large/{{item}} 1024w, assets/projects/{{meta.pageID}}/medium/{{item}} 640w, assets/projects/{{meta.pageID}}/small/{{item}} 320w"
 					data-src="assets/projects/{{meta.pageID}}/large/{{item}}"
 				/>
-				<noscript><img src="{{item}}"></noscript>
+				<noscript>
+					<img src="assets/projects/{{meta.pageID}}/medium/{{item}}">
+				</noscript>
 			{{/compiler.isProduction}}
 			{{^compiler.isProduction}}
 				<img class="blazy"
 					src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 					data-src="assets/projects/{{meta.pageID}}/{{item}}"
 				/>
-				<noscript><img src="{{item}}"></noscript>
+				<noscript>
+					<img src="assets/projects/{{meta.pageID}}/medium/{{item}}">
+				</noscript>
 			{{/compiler.isProduction}}
 		{{/items}}
 	</div>
