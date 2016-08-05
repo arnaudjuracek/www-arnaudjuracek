@@ -38,8 +38,9 @@ function videoController(videoSelector, contollersSelector){
 		});
 
 		player.addEventListener('ended', function(){
-			play.pause();
+			player.pause();
 			controls.classList.remove('playing');
+		 	player.load(); // reshow poster
 		});
 
 		player.addEventListener('timeupdate', function(){
