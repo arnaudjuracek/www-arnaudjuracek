@@ -47,8 +47,8 @@ function videoController(videoSelector, contollersSelector){
 			let time = player.currentTime;
 			let buffered = player.buffered.end(0)
 
-			progress.style.width = time * (100/player.duration) + "%";
-			loaded.style.width = buffered * (100/player.duration) + "%";
+			progress.style.width = Math.floor(time * (100/player.duration)) + "%";
+			loaded.style.width = Math.floor(buffered * (100/player.duration)) + "%";
 		}, false);
 	}
 

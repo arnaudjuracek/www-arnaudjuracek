@@ -233,20 +233,18 @@ a:hover, a.hover
 		bottom -.125em
 		font-size 20px
 		height .125em
-		opacity 0
 		easing(500)
 		& *
 			position absolute
 			height 100%
-			easing(100)
 		& #loaded
+			easing(200)
+			width 0
 			background blue
 		& #progress
+			easing(1000)
+			width 0
 			background white
-	&:hover, &.playing
-		& .progress-bar
-			easing(0)
-			opacity 1
 	&.playing
 		& svg
 			easing(500)
