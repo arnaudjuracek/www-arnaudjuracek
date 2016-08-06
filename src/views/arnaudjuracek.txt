@@ -1,0 +1,14 @@
+---
+template: project
+
+title: www
+date: 2016-08-01
+context: portfolio
+license: "MIT"
+credits:
+  "liens":
+    - <a href="http://arnaudjuracek.fr/">arnaudjuracek.fr</a>
+    - <a href="https://github.com/arnaudjuracek/www-arnaudjuracek">github/www-arnaudjuracek</a>
+
+images:
+  - preview.png
