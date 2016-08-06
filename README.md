@@ -66,6 +66,8 @@ videos:
   - {url: "file.mp4", poster: "poster.png"}
 ```
 
+If `template` is omitted, `{{content}}` will be output. You can quickly build views like this (see [views/index.txt](src/views/index.txt)), but note that none of the other YAML fields will be evaluated.
+
 Note that the assets path is implicit, and should be `assets/projects/project-name/`. 
 When calling `npm run build`, all images assets will be resized and structured as following : 
 ```
