@@ -1,7 +1,7 @@
 {
-  "name": "bro-start",
+  "name": "www-arnaudjuracek",
   "version": "1.2.0",
-  "description": "Tiny starter kit for making cool websites",
+  "description": "unubiquitous & cross-client-synced portfolio",
   "main": "src/index.js",
   "scripts": {
     "dev": "node scripts/dev.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brocessing/bro-start"
+    "url": "git+https://github.com/arnaudjuracek/www-arnaudjuracek"
   },
-  "author": "Brocessing",
+  "author": "Arnaud Juracek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/brocessing/bro-start/issues"
+    "url": "https://github.com/arnaudjuracek/www-arnaudjuracek/issues"
   },
-  "homepage": "https://github.com/brocessing/bro-start#readme",
+  "homepage": "https://github.com/arnaudjuracek/www-arnaudjuracek#readme",
   "devDependencies": {
     "autoprefixer-stylus": "^0.9.3",
     "babel-core": "^6.9.1",
