@@ -66,10 +66,10 @@ function cursorsManager(_opts){
 
 		World.remove(engine.world, worldBoundaries);
 		worldBoundaries = [
-			Bodies.rectangle(w*.5, -50, w + 2*50, 100, { isStatic: true }),
-			Bodies.rectangle(w*.5, h + 50, w + 2*50, 100, { isStatic: true }),
-			Bodies.rectangle(w + 50, h*.5, 100, h + 2*50, { isStatic: true }),
-			Bodies.rectangle(-50, h*.5, 100, h + 2*50, { isStatic: true })
+			Bodies.rectangle(w*.5, -opts.physics.collidRadius, w + 2*opts.physics.collidRadius, 2*opts.physics.collidRadius, { isStatic: true }),
+			Bodies.rectangle(w*.5, h + opts.physics.collidRadius, w + 2*opts.physics.collidRadius, 2*opts.physics.collidRadius, { isStatic: true }),
+			Bodies.rectangle(w + opts.physics.collidRadius, h*.5, 2*opts.physics.collidRadius, h + 2*opts.physics.collidRadius, { isStatic: true }),
+			Bodies.rectangle(-opts.physics.collidRadius, h*.5, 2*opts.physics.collidRadius, h + 2*opts.physics.collidRadius, { isStatic: true })
 		];
 		World.add(engine.world, worldBoundaries);
 	}
