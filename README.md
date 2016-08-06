@@ -22,7 +22,7 @@ pm2 start server/app.js
 
 ### Deployment
 ```bash
-remote_username@remote_host 
+ssh remote_username@remote_host 
 cd /www/www-arnaudjuracek
 git pull
 npm run build
