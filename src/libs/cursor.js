@@ -7,7 +7,7 @@ function Cursor(_id, _x, _y, _textures){
 	let sprite = new PIXI.Sprite(textures.default);
 	let isHover = false;
 
-	let hitbox = new window.Matter.Bodies.circle(x, y, 10, {
+	let hitbox = new window.Matter.Bodies.circle(x, y, 100, {
 		density: 1,
 		friction: 0,
 		frictionStatic: 0.5,
@@ -40,6 +40,7 @@ function Cursor(_id, _x, _y, _textures){
 	}
 
 	function kill(){
+    window.Matter.Body.scale(hitbox, 0.1, 0.1);
 		window.Matter.Body.setStatic(hitbox, false);
 	}
 
