@@ -16,7 +16,6 @@ function resize(params) {
 		output: params.output,
 		width: params.width,
 		height: params.height,
-		quality: params.quality || 0.8,
 		deleteAfterResize: params.deleteAfterResize
 	});
 }
@@ -29,8 +28,7 @@ function resizeimg(params, cb){
 			im.resize({
 				srcPath: params.input,
 				dstPath: params.output,
-				width:   params.width,
-				quality: params.quality
+				width:   params.width
 			}, function(err, stdout, stderr){
 				if(err) sh.error(stderr);
 				else if(params.deleteAfterResize){

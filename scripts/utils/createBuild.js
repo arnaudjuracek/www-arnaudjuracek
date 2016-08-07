@@ -62,12 +62,11 @@ function createBuild(options = {}) {
 
 				// low-fi image for lazyloading
 				resize({
-					input: file,
-					output: path.join(basedir, 'low', filename),
-					width: 44,
-					quality: 0.1,
-					deleteAfterResize: true
-				});
+          input: file,
+          output: path.join(basedir, 'low', filename),
+          width: 32,
+          deleteAfterResize: true,
+        });
   			}
 		});
 
