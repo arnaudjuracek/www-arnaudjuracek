@@ -11,22 +11,22 @@ Build with brocessing's [bro-start](https://github.com/brocessing/bro-start/)
 Install [ImageMagick](https://github.com/ImageMagick/ImageMagick), then :
 
 ```bash
-ssh remote_username@remote_host
-mkdir /www/www-arnaudjuracek && cd /ww/www-arnaudjuracek
-git clone https://github.com/arnaudjuracek/www-arnaudjuracek.git
-sudo npm install
-ln -s /www/www-arnaudjuracek/build /www/www-arnaudjuracek/server/public
-npm run build
-pm2 start server/app.js
+$ ssh remote_username@remote_host
+$ mkdir /www/www-arnaudjuracek && cd /ww/www-arnaudjuracek
+$ git clone https://github.com/arnaudjuracek/www-arnaudjuracek.git
+$ sudo npm install
+$ ln -s /www/www-arnaudjuracek/build /www/www-arnaudjuracek/server/public
+$ npm run build
+$ pm2 start server/app.js
 ```
 
 ### Deployment
 ```bash
-ssh remote_username@remote_host 
-cd /www/www-arnaudjuracek
-git pull
-npm run build
-pm2 restart app
+$ ssh remote_username@remote_host 
+$ cd /www/www-arnaudjuracek
+$ git pull
+$ npm run build
+$ pm2 restart app
 ```
 
 ### Data structures
