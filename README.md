@@ -4,7 +4,7 @@ www-arnaudjuracek
 `🌎🖥🌍 unubiquitous & cross-client-synced portfolio`
 ![preview](preview.png?raw=true "preview")
 
-Build with brocessing's [bro-start](https://github.com/brocessing/bro-start/)
+Built with brocessing's [bro-start](https://github.com/brocessing/bro-start/)
 
 ### Installation
 
