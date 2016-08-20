@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-app.use(require('express-status-monitor')());
 
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
