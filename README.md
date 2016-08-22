@@ -1,7 +1,7 @@
 ![preview](preview.png?raw=true "preview")
 
 <p align="center">
-🌎🔃🌍<br>unubiquitous & cross-client-synced portfolio
+🌎🔃🌍<br>http://arnaudjuracek.fr<br>unubiquitous & cross-client-synced portfolio
 </p>
 
 === 
