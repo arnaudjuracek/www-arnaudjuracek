@@ -80,7 +80,7 @@ assets/
       large/image.jpg
 ```
 
-### Dependencies
+### Attributions
 - [bro-start](https://github.com/brocessing/bro-start/) (MIT)
   - [Webpack](https://github.com/webpack/webpack) + [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
   - [ES6](https://github.com/lukehoban/es6features#readme) transpilation with [Babel](https://github.com/babel/babel)
