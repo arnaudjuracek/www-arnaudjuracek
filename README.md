@@ -80,5 +80,18 @@ assets/
       large/image.jpg
 ```
 
+### Dependencies
+- [bro-start](https://github.com/brocessing/bro-start/) (MIT)
+  - [Webpack](https://github.com/webpack/webpack) + [Webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+  - [ES6](https://github.com/lukehoban/es6features#readme) transpilation with [Babel](https://github.com/babel/babel)
+  - [Stylus](https://github.com/stylus/stylus/) + [nib](https://github.com/tj/nib) + [autoprefixer](https://github.com/jescalan/autoprefixer-stylus)
+  - [mustache](https://mustache.github.io/) with [mu](https://github.com/raycmorgan/Mu)
+  - [BrowserSync](https://github.com/BrowserSync/browser-sync) + [localtunnel](https://github.com/localtunnel/localtunnel)
+- [blazy](https://github.com/dinbror/blazy) (MIT)
+- [js-yaml](https://github.com/nodeca/js-yaml) (MIT)
+- [matter-js](https://github.com/liabru/matter-js) (MIT)
+- [pixi.js](https://github.com/pixijs/pixi.js) (MIT)
+- [Mac OS X lion cursors](http://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/)
+
 ### License
 MIT.
