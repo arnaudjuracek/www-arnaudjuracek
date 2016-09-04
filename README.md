@@ -95,4 +95,4 @@ assets/
 - [Mac OS X lion cursors](http://tobiasahlin.com/blog/common-mac-os-x-lion-cursors/)
 
 ### License
-MIT.
+[MIT](https://tldrlegal.com/license/mit-license).
