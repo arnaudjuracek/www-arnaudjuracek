@@ -14,7 +14,7 @@ const opts = {
 	publicDir: '/public',
 	port: 8080,
 
-	cursorsMaxLength: 1000,
+	cursorsMaxLength: 500,
 	cursorsFilename: 'cursors.json'
 };
 const staticPath = path.join(__dirname, opts.publicDir);
