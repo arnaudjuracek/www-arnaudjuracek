@@ -1,0 +1,16 @@
+---
+template: project
+
+title: xy
+date: 2016-09-01
+context: plotter
+license: "MIT"
+credits:
+  "liens":
+    - <a href="https://github.com/arnaudjuracek/xy">github/xy</a>
+
+content: |
+  <p></p>
+
+images:
+  - preview.jpg

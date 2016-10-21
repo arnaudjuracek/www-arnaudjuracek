@@ -10,5 +10,8 @@ credits:
     - <a href="http://arnaudjuracek.fr/">arnaudjuracek.fr</a>
     - <a href="https://github.com/arnaudjuracek/www-arnaudjuracek">github/www-arnaudjuracek</a>
 
+content: |
+  <p>
+
 images:
   - preview.png
