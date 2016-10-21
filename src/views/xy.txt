@@ -8,6 +8,8 @@ license: "MIT"
 credits:
   "liens":
     - <a href="https://github.com/arnaudjuracek/xy">github/xy</a>
+    - <a href="https://github.com/arnaudjuracek?page=1&tab=repositories&utf8=%E2%9C%93&q=xy">github/xy-*</a>
+    - <a href="https://twitter.com/search?q=from%3A%40arnaudjuracek%20%23plottertwitter&src=typd">twitter/plottertwitter</a>
 
 content: |
   <p></p>
