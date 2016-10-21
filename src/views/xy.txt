@@ -13,4 +13,4 @@ content: |
   <p></p>
 
 images:
-  - preview.jpg
+  - detail.jpg
