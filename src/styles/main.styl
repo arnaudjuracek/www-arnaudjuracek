@@ -1,261 +1,262 @@
 html, body
-	height 100%
-	margin 0
-	&.preload *,
-	&.preload *::after,
-	&.preload *::before,
-	&.no-js *,
-	&.no-js *::after,
-	&.no-js *::before
-		transition none !important
-	&.no-js .blazy
-		display none !important
+  height 100%
+  margin 0
+  &.preload *,
+  &.preload *::after,
+  &.preload *::before,
+  &.no-js *,
+  &.no-js *::after,
+  &.no-js *::before
+    transition none !important
+  &.no-js .blazy
+    display none !important
 
 body
-	background white
-	padding 0
-	cursor default
-	height 100%
-	min-height 100%
+  background white
+  padding 0
+  cursor default
+  height 100%
+  min-height 100%
 
 a
-	color blue
-	text-decoration none
-	height 1.2em
-	border-bottom .125em solid transparent
-	easing(500)
+  color blue
+  text-decoration none
+  height 1.2em
+  border-bottom .125em solid transparent
+  easing(500)
 a:hover, a.hover
-	easing(0)
-	color blue
-	border-bottom-color blue
+  easing(0)
+  color blue
+  border-bottom-color blue
 
 #cursors
-	position fixed
-	z-index 99999
-	top 0
-	left 0
-	right 0
-	bottom 0
-	pointer-events none
+  position fixed
+  z-index 99999
+  top 0
+  left 0
+  right 0
+  bottom 0
+  pointer-events none
 
 // -------------------------------------------------------------------------
 
 .page
-	max-width 1600px
-	margin 0 auto
-	font_main()
-	font_antialiased()
-	nav
-		position fixed
-		// little hack to avoid :hover on nav/ul background
-		width 0
-		overflow visible
-		white-space nowrap
-		// --/
-		z-index 2
-		top 50px
-		left 25px
-		line-height 1.4em
-		// column-count 2
+  max-width 1600px
+  margin 0 auto
+  font_main()
+  font_antialiased()
+  nav
+    position fixed
+    // little hack to avoid :hover on nav/ul background
+    width 0
+    overflow visible
+    white-space nowrap
+    // --/
+    z-index 2
+    top 50px
+    left 25px
+    line-height 1.4em
+    // column-count 2
 
-		// -------------------------------------------------------------------------
-		input.hamburger
-			display none
-		+media(mobile)
-			header
-				z-index 9
-				position fixed
-				top 0
-				left 0
-				right 0
-				padding-top 50px
-				padding-left 25px
-				& a
-					margin-left 0
-			ul
-				position fixed
-				top 0
-				right 0
-				bottom 0
-				left 0
-				padding-top calc(50px+3em)
-				text-align right
-				background rgba(255, 255, 255, .95)
-				li
-					margin-right 25px
-					& a, & a::before
-						background transparent !important
+    // -------------------------------------------------------------------------
+    input.hamburger
+      display none
+    +media(mobile)
+      header
+        z-index 9
+        position fixed
+        top 0
+        left 0
+        right 0
+        padding-top 50px
+        padding-left 25px
+        & a
+          margin-left 0
+      ul
+        position fixed
+        top 0
+        right 0
+        bottom 0
+        left 0
+        padding-top calc(50px+3em)
+        text-align right
+        background rgba(255, 255, 255, .95)
+        li
+          margin-right 25px
+          & a, & a::before
+            background transparent !important
 
-			input.hamburger
-				&~ul
-					display none
-				&:checked~ul
-					display block
-				&:checked~label[for="hamburger"]
-					transform rotate(90deg)
-			label[for="hamburger"]
-				easing(100)
-				position fixed
-				z-index 99
-				right 25px
-				display block
-				width 1.4em
-				height 1.4em
-				cursor pointer
-				background-image url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>")
-				background-size contain
-		// -------------------------------------------------------------------------
-		header
-			margin-bottom 1.4em
-			a::before
-				display none
-		a
-			easing(500)
-			position relative
-			margin-left 4em
-			&::before
-				easing(500)
-				content attr(data-date)
-				position absolute
-				height 100%
-				padding-right 1em
-				right 100%
-				color rgba(0,0,0,.4)
-				border-bottom .125em solid transparent
-			&:hover, &.hover
-				easing(0)
-				background rgba(255,255,255,.9)
-				&::before
-					easing(0)
-					background rgba(255,255,255,.9)
-					border-bottom .125em solid blue
-	section
-		z-index 1
-		font-family 'Open Sans', sans serif
-		font-weight bold
-		font_size(8)
-		padding 50px
-		padding-top 100vh
-		margin-top -1.7em
-		+media(mobile)
-			padding-top 150px
-			margin-top 0
-		header
-			margin-bottom 1em
-			h1
-				font_size(8)
-				font-weight bold
-			aside
-				margin-top .2em
-				font_size(6)
-		p
-			margin-bottom .4em
-			line-height 1.025em
+      input.hamburger
+        &~ul
+          display none
+        &:checked~ul
+          display block
+        &:checked~label[for="hamburger"]
+          transform rotate(90deg)
+      label[for="hamburger"]
+        easing(100)
+        position fixed
+        z-index 99
+        right 25px
+        display block
+        width 1.4em
+        height 1.4em
+        cursor pointer
+        background-image url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>")
+        background-size contain
+    // -------------------------------------------------------------------------
+    header
+      margin-bottom 1.4em
+      a::before
+        display none
+    a
+      easing(500)
+      position relative
+      margin-left 4em
+      &::before
+        easing(500)
+        content attr(data-date)
+        position absolute
+        height 100%
+        padding-right 1em
+        right 100%
+        vertical-align -50%
+        color rgba(0,0,0,.4)
+        border-bottom .125em solid transparent
+      &:hover, &.hover
+        easing(0)
+        background rgba(255,255,255,.9)
+        &::before
+          easing(0)
+          background rgba(255,255,255,.9)
+          border-bottom .125em solid blue
+  section
+    z-index 1
+    font-family 'Open Sans', sans serif
+    font-weight bold
+    font_size(8)
+    padding 50px
+    padding-top 100vh
+    margin-top -1.7em
+    +media(mobile)
+      padding-top 150px
+      margin-top 0
+    header
+      margin-bottom 1em
+      h1
+        font_size(8)
+        font-weight bold
+      aside
+        margin-top .2em
+        font_size(6)
+    p
+      margin-bottom .4em
+      line-height 1.025em
 
-		.description, footer
-			margin 0 auto
-			max-width 600px
-			line-height 1.3em
-			font-size 20px
-			p
-				margin-bottom 1em
-				line-height inherit
-		.description+.gallery
-			font_size(8)
-			margin-top 1em
-		footer
-			text-align right
-			margin-top 1em
-			[data-meta]::before
-				display block
-				position relative
-				font-size smaller
-				content attr(data-meta)
-				margin-top 1em
-		.gallery
-			&.gallery-columns-2{column-count:2;}
-			&.gallery-columns-3{column-count:3;}
-			&.gallery-columns-4{column-count:4;}
-			+media(mobile)
-				&.gallery-columns-2,
-				&.gallery-columns-3,
-				&.gallery-columns-4{column-count:1;}
-			column-gap 25px
-			line-height 0
-			width 100%
-			max-width 800px
-			margin 0 auto
-			+media(mobile)
-				margin 0 -50px
-				width auto
-			img
-				display block
-				padding-bottom 25px // padding instead of margin to avoid weird column glitch
-				width 100%
-				height auto
-				&:first-child
-					column-span all
-				&:last-child
-					margin-bottom 0
-			.iframe-ratio
-				position relative
-				margin-bottom 25px
-				width 100%
-				height 0
-				background black
+    .description, footer
+      margin 0 auto
+      max-width 600px
+      line-height 1.3em
+      font-size 20px
+      p
+        margin-bottom 1em
+        line-height inherit
+    .description+.gallery
+      font_size(8)
+      margin-top 1em
+    footer
+      text-align right
+      margin-top 1em
+      [data-meta]::before
+        display block
+        position relative
+        font-size smaller
+        content attr(data-meta)
+        margin-top 1em
+    .gallery
+      &.gallery-columns-2{column-count:2;}
+      &.gallery-columns-3{column-count:3;}
+      &.gallery-columns-4{column-count:4;}
+      +media(mobile)
+        &.gallery-columns-2,
+        &.gallery-columns-3,
+        &.gallery-columns-4{column-count:1;}
+      column-gap 25px
+      line-height 0
+      width 100%
+      max-width 800px
+      margin 0 auto
+      +media(mobile)
+        margin 0 -50px
+        width auto
+      img
+        display block
+        padding-bottom 25px // padding instead of margin to avoid weird column glitch
+        width 100%
+        height auto
+        &:first-child
+          column-span all
+        &:last-child
+          margin-bottom 0
+      .iframe-ratio
+        position relative
+        margin-bottom 25px
+        width 100%
+        height 0
+        background black
 
-				padding-bottom 56.25%
-				&.16-10{padding-bottom: 62.5%;}
-				&.16-9{padding-bottom: 56.25%;}
-				&.4-3{padding-bottom: 75%;}
-				iframe, video
-					position: absolute
-					width: 100%
-					height: 100%
-					left: 0
-					top: 0
+        padding-bottom 56.25%
+        &.16-10{padding-bottom: 62.5%;}
+        &.16-9{padding-bottom: 56.25%;}
+        &.4-3{padding-bottom: 75%;}
+        iframe, video
+          position: absolute
+          width: 100%
+          height: 100%
+          left: 0
+          top: 0
 
 
 // -------------------------------------------------------------------------
 
 .video-controllers
-	cursor pointer
-	position absolute
-	width 100%
-	height 100%
-	svg
-		easing(500)
-		background rgba(0,0,0, .3)
-		& .triangle
-			easing(0)
-			fill white
-			stroke white
-	.progress-bar
-		position absolute
-		width 100%
-		bottom -.125em
-		font-size 20px
-		height .125em
-		easing(500)
-		& *
-			position absolute
-			height 100%
-		& #loaded
-			easing(200)
-			width 0
-			background blue
-		& #progress
-			easing(1000)
-			width 0
-			background white
-	&.playing
-		& svg
-			easing(500)
-			background rgba(0,0,0, 0)
-			& .triangle
-				easing(500)
-				opacity 0
-	&:hover:not(.playing)
-		& svg
-			easing(500)
-			background rgba(0,0,0, .5)
+  cursor pointer
+  position absolute
+  width 100%
+  height 100%
+  svg
+    easing(500)
+    background rgba(0,0,0, .3)
+    & .triangle
+      easing(0)
+      fill white
+      stroke white
+  .progress-bar
+    position absolute
+    width 100%
+    bottom -.125em
+    font-size 20px
+    height .125em
+    easing(500)
+    & *
+      position absolute
+      height 100%
+    & #loaded
+      easing(200)
+      width 0
+      background blue
+    & #progress
+      easing(1000)
+      width 0
+      background white
+  &.playing
+    & svg
+      easing(500)
+      background rgba(0,0,0, 0)
+      & .triangle
+        easing(500)
+        opacity 0
+  &:hover:not(.playing)
+    & svg
+      easing(500)
+      background rgba(0,0,0, .5)
