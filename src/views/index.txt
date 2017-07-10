@@ -4,5 +4,5 @@ content: |
   Bonjour,<br/>
   je m'appelle <a href="http://hello.arnaudjuracek.fr/">Arnaud Juracek</a> et je suis designer interactif.
   </p>
-  <p>Diplômé d'<a href="http://www.ecole-estienne.paris/fr">Estienne</a> &amp; <a href="http://www.ecole-boulle.org/">Boulle</a>, je conçois et fabrique des dispositifs réels &amp; virtuels, parfois les deux en même temps.</p>
+  <!--<p>Diplômé d'<a href="http://www.ecole-estienne.paris/fr">Estienne</a> &amp; <a href="http://www.ecole-boulle.org/">Boulle</a>, je conçois et fabrique des dispositifs réels &amp; virtuels, parfois les deux en même temps.</p>-->
   <p>Vous pouvez me suivre sur <a href="https://twitter.com/arnaudjuracek">twitter</a> et <a href="https://github.com/arnaudjuracek/">github</a>, ou me contacter par <a href="mailto:arnaud.juracek+hello@gmail.com">mail</a>.</p>
