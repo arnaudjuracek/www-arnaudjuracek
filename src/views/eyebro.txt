@@ -1,0 +1,26 @@
+---
+template: project
+
+title: eyebro
+date: 2016-12-03
+context: Brocessing
+license: "MIT"
+credits:
+  "réalisé avec":
+    - <a href="http://antoine.cool/">Antoine Puel</a>
+  "liens":
+    - <a href="https://github.com/brocessing/eyebro">github/eyebro</a>
+    - <a href="https://github.com/auduno/clmtrackr">github/clmtrackr</a>
+
+content: |
+  <p>Eyebro est un runner game qui se joue avec le visage.</p>
+  <p>Grâce à un système de tracking via la webcam, les sourcils font office de contrôleur et permettent de faire sauter la balle.</p>
+  <p><a href="https://brocessing.github.io/eyebro/">Jouer à eyebro</a></p>
+
+images:
+  - preview-1.png
+  - preview-2.png
+  - preview-3.png
+  - preview-4.png
+#videos:
+  #- {url: "proto-HD.mp4", poster: "poster.png"}
