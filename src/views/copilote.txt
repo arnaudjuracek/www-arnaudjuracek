@@ -1,0 +1,25 @@
+---
+template: project
+
+title: copilote
+date: 2017-11-18
+context: Brocessing
+license: "MIT"
+credits:
+  "réalisé avec":
+    - <a href="https://brocessing.men/">Brocessing</a>
+  "dans le cadre de":
+    - <a href="https://twitter.com/GROW_Paris">GROW Paris 2017</a>
+  "liens":
+    - <a href="http://copilote.money/">copilote.money</a>
+    - <a href="https://github.com/brocessing/copilote">github/copilote</a>
+    - <a href="https://www.youtube.com/watch?time_continue=2126&v=1XTp-Qa0k6U">youtube</a>
+
+content: |
+  <p>Copilote est un jeu de course-poursuite dans lequel le joueur incarne le GPS d'une voiture de braqueur de banque.</p>
+  <p>Le contrôle de la voiture se fait à la voix par la biais de la Webspeech API (Google Chrome).</p>
+  <p><a href="http://copilote.money/">Jouer à copilote</a></p>
+
+images:
+  - copilote_splashscreen.png
+  - copilote.gif
