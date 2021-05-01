@@ -1,6 +1,6 @@
 {
   "name": "www-arnaudjuracek",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "start": "browser-sync start -sw --port 8080 --no-notify --no-open"
   },
