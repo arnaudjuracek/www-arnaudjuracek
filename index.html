@@ -13,6 +13,7 @@
     }
 
     body {
+      overscroll-behavior: none;
       font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
       font-size: 2.0rem;
       line-height: 1.3;
@@ -95,8 +96,8 @@
     window.addEventListener('touchmove', draw)
 
     function draw (e) {
+      e.preventDefault()
       window.requestAnimationFrame(() => {
-        e.preventDefault()
         const coords = e.touches
           ? [e.touches[0].clientX, e.touches[0].clientY]
           : [e.pageX, e.pageY]
