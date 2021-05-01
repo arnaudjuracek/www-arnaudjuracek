@@ -1,0 +1,29 @@
+# Logs
+logs
+*.log
+
+# Temporary files
+/media/*
+!/media/index.html
+*.bak
+
+# Node / Runtime files
+.cache
+pids
+*.pid
+*.seed
+.tmp
+node_modules
+npm-debug.log*
+yarn.log
+
+# Editor files
+.history
+
+# System files
+Icon
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
