@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,height=device-height,initial-scale=1.0,minimal-ui'>
+
+  <title>Arnaud Juracek</title>
+  <meta name='description' content='designer'>
+
+  <style type='text/css'>
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      font-size: 2.0rem;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    a {
+      color: blue;
+    }
+
+    a:focus-visible {
+      background: white;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      font-size: inherit;
+      margin: 0;
+    }
+
+    h2 {
+      font-weight: normal;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    canvas {
+      z-index: -1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      image-rendering: optimizeSpeed;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -o-crisp-edges;
+      image-rendering: pixelated;
+      -ms-interpolation-mode: nearest-neighbor;
+    }
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+  <main>
+    <h1>Arnaud Juracek</h1>
+    <h2>designer</h2>
+    <nav>
+      <ul>
+        <li><a href='https://twitter.com/arnaudjuracek'>twitter</a></li>
+        <li><a href='https://github.com/arnaudjuracek'>github</a></li>
+        <li><a href='mailto:contact@arnaudjuracek.fr'>email</a></li>
+      </ul>
+    </nav>
+  </main>
+  <script type='text/javascript'>
+    const NS = 'arnaudjuracek'
+
+    const canvas = document.querySelector('canvas')
+    canvas.width = 100
+    canvas.height = 100
+
+    const ctx = canvas.getContext('2d')
+    ctx.strokeStyle = '#0000FF02'
+
+    const storedDataUrl = window.localStorage.getItem(NS)
+    if (storedDataUrl) {
+      const image = new window.Image()
+      image.onload = () => ctx.drawImage(image, 0, 0)
+      image.src = storedDataUrl
+    }
+
+    window.addEventListener('mousemove', draw)
+    window.addEventListener('touchmove', draw)
+
+    function draw (e) {
+      window.requestAnimationFrame(() => {
+        e.preventDefault()
+        const coords = e.touches
+          ? [e.touches[0].clientX, e.touches[0].clientY]
+          : [e.pageX, e.pageY]
+
+        const x = coords[0] / window.innerWidth * canvas.width
+        const y = coords[1] / window.innerHeight * canvas.height
+        ctx.lineTo(x, y)
+        ctx.stroke()
+        window.localStorage.setItem(NS, canvas.toDataURL())
+      })
+    }
+  </script>
+</body>
+</html>
