@@ -3,6 +3,7 @@
   "version": "2.3.0",
   "scripts": {
     "start": "browser-sync start -sw --port 8080 --no-notify --no-open",
+    "encode-email": "php scripts/encode-email.php",
     "postversion": "git push && git push --tags"
   },
   "repository": {
