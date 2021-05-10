@@ -2,7 +2,8 @@
   "name": "www-arnaudjuracek",
   "version": "2.3.0",
   "scripts": {
-    "start": "browser-sync start -sw --port 8080 --no-notify --no-open"
+    "start": "browser-sync start -sw --port 8080 --no-notify --no-open",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
