@@ -1,6 +1,6 @@
 {
   "name": "www-arnaudjuracek",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "scripts": {
     "start": "browser-sync start -sw --port 8080 --no-notify --no-open",
     "encode-email": "php scripts/encode-email.php",
