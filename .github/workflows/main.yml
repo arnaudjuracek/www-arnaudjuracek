@@ -4,17 +4,31 @@ on:
     tags:
       - '*'
 
-jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
+concurrency:
+  group: 'production'
+  cancel-in-progress: true
+
+jobs:jobs:
+  deploy:
+    environment:
+      name: production
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
-      env:
-        FTP_SERVER: ${{ secrets.FTP_SERVER }}
-        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        REMOTE_DIR: /www
-        ARGS: --exclude-glob=* --include=index.html
+    - uses: actions/checkout@v3
+    - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 21
+        protocol: ftps
+        server-dir: /www
+        exclude: |
+          **/.git*
+          **/.git*/**
+          scripts/*
+          .eslintrc
+          LICENSE
+          package.json
+          README.md
+          yarn.lock
