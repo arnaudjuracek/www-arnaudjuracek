@@ -8,7 +8,7 @@ concurrency:
   group: 'production'
   cancel-in-progress: true
 
-jobs:jobs:
+jobs:
   deploy:
     environment:
       name: production
